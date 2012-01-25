@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="basic_opengl">
+</Property><Property Name="Solution File" Value="C:\Users\Nathan S\Desktop\Basic\vs2005\basic_opengl\basic_opengl.sln">
+</Property><Property Name="Date" Value="Monday, January 23, 2012">
+</Property><Property Name="Time" Value="16:27:08 PM">
+</Property><Property Name="Log Number" Value="2">
+</Property></Properties><Event ErrorLevel="0" Project="basic_opengl" Source="basic_opengl.vcproj" Description="Web deployment to the local IIS server is no longer supported. The Web Deployment build tool has been removed from your project settings.">
+</Event><Event ErrorLevel="1" Project="basic_opengl" Source="basic_opengl.vcproj" Description="This application has been updated to include settings related to the User Account Control (UAC) feature of Windows Vista. By default, when run on Windows Vista with UAC enabled, this application is marked to run with the same privileges as the process that launched it. This marking also disables the application from running with virtualization. You can change UAC related settings from the Property Pages of the project.">
+</Event><Event ErrorLevel="2" Project="basic_opengl" Source="basic_opengl.vcproj" Description="Failed to upgrade project file 'C:\Users\Nathan S\Desktop\Basic\vs2005\basic_opengl\basic_opengl.vcproj'.  Please make sure the file exists and is not write-protected.">
+</Event><Event ErrorLevel="2" Project="basic_opengl" Source="basic_opengl.vcproj" Description="Project upgrade failed.">
+</Event><Event ErrorLevel="3" Project="basic_opengl" Source="basic_opengl.vcproj" Description="Not Converted">
+</Event></UpgradeLog>
