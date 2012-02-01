@@ -7,7 +7,7 @@
 
 	#define		USE_SHADOWS			// Disable if you don't have FBOs, or to greatly speed up demo.
 
-	#define		USE_JPEG
+	// #define		USE_JPEG
 
 	//#define		BUILD_CUDA			// CUDA - Visual Studio 2005 only (as of April 2009)
 
