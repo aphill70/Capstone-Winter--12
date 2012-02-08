@@ -4,7 +4,9 @@
 #include "Globals.h"
 #include "KeyboardInput.h"
 
+#ifndef _WIN32
 using namespace std;
+#endif
 
 KeyboardInput::KeyboardInput(void) : 
 		forwardPressed(false), backPressed(false), 

@@ -6,9 +6,9 @@
 #include "ControlManager.h"
 
 #include <gl/glut.h>
-
+#ifndef _WIN32
 using namespace std;
-
+#endif
 // Defines
 
 // Function prototypes
