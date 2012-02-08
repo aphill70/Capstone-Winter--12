@@ -4,9 +4,7 @@
 #include "Globals.h"
 #include "KeyboardInput.h"
 
-#ifndef _WIN32
 using namespace std;
-#endif
 
 KeyboardInput::KeyboardInput(void) : 
 		forwardPressed(false), backPressed(false), 
@@ -103,7 +101,7 @@ void KeyboardInput::MoveForward(WorldTransformation& transform) {
 	double zComponent = cos(transform.rotateY * PI / 180.0) * xzComponent;
 
 	transform.xPos -= xComponent;
-	transform.yPos += yComponent;
+	//transform.yPos += yComponent;
 	transform.zPos += zComponent;
 }
 
@@ -114,7 +112,7 @@ void KeyboardInput::MoveBack(WorldTransformation& transform) {
 	double zComponent = cos(transform.rotateY * PI / 180.0) * xzComponent;
 
 	transform.xPos += xComponent;
-	transform.yPos -= yComponent;
+	//transform.yPos -= yComponent;
 	transform.zPos -= zComponent;
 }
 
@@ -138,24 +136,24 @@ void KeyboardInput::MoveRight(WorldTransformation& transform) {
 
 void KeyboardInput::MoveUp(WorldTransformation& transform) {
 	double angle = transform.rotateX - 90;
-	double yComponent = sin(angle * PI / 180.0) * MOVEMENT_DELTA;
+	double yComponent = /*sin(angle * PI / 180.0) */ MOVEMENT_DELTA;
 	double xzComponent = sqrt( MOVEMENT_DELTA * MOVEMENT_DELTA - yComponent * yComponent);
 	double xComponent = sin(transform.rotateY * PI / 180.0) * xzComponent;
 	double zComponent = cos(transform.rotateY * PI / 180.0) * xzComponent;
 
-	transform.xPos -= xComponent;
+	//transform.xPos -= xComponent;
 	transform.yPos += yComponent;
-	transform.zPos += zComponent;
+	//transform.zPos += zComponent;
 }
 
 void KeyboardInput::MoveDown(WorldTransformation& transform) {
 	double angle = transform.rotateX - 90;
-	double yComponent = sin(angle * PI / 180.0) * MOVEMENT_DELTA;
+	double yComponent = /*sin(angle * PI / 180.0) */ MOVEMENT_DELTA;
 	double xzComponent = sqrt( MOVEMENT_DELTA * MOVEMENT_DELTA - yComponent * yComponent);
 	double xComponent = sin(transform.rotateY * PI / 180.0) * xzComponent;
 	double zComponent = cos(transform.rotateY * PI / 180.0) * xzComponent;
 
-	transform.xPos += xComponent;
+	//transform.xPos += xComponent;
 	transform.yPos -= yComponent;
-	transform.zPos -= zComponent;
+	//transform.zPos -= zComponent;
 }

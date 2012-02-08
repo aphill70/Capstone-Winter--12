@@ -1,14 +1,14 @@
 // Main.cpp : The entry point for the console application.
 
 #include <time.h>
-
+#include <windows.h>
 #include "Globals.h"
 #include "ControlManager.h"
 
 #include <gl/glut.h>
-#ifndef _WIN32
+
 using namespace std;
-#endif
+
 // Defines
 
 // Function prototypes
@@ -20,12 +20,14 @@ GLvoid ReSizeGLScene(int width, int height);
 GLvoid KeyDown(unsigned char key, int x, int y);
 GLvoid KeyUp(unsigned char key, int x, int y);
 GLvoid MouseMotion(int x, int y);
+GLvoid MouseClick(int button, int state, int x, int y);
 
 // Globals
 clock_t lastTickTime;
 ControlManager controlManager;
 
 int main(int argc, char* argv[]){
+	
 	glutInit(&argc, argv);
 
 	InitGL();
@@ -72,12 +74,13 @@ GLvoid InitGL(){
 	glutKeyboardUpFunc(KeyUp);
 	glutPassiveMotionFunc(MouseMotion);
 	glutMotionFunc(MouseMotion);
-
+	glutMouseFunc(MouseClick);
 	// Setup for animation
 	lastTickTime = clock();
 
 	// Put mouse in starting position
 	glutWarpPointer(windowWidth / 2.0, windowHeight / 2.0);
+	glutSetCursor(GLUT_CURSOR_NONE);
 }
 
 
@@ -209,6 +212,18 @@ GLvoid ReSizeGLScene(int width, int height){
 	glLoadIdentity();
 }
 
-GLvoid KeyDown(unsigned char key, int x, int y) { controlManager.HandleKeyDown(key, x, y); }
-GLvoid KeyUp(unsigned char key, int x, int y) { controlManager.HandleKeyUp(key, x, y); }
-GLvoid MouseMotion(int x, int y) { controlManager.HandleMouseMotion(x, y); }
+GLvoid KeyDown(unsigned char key, int x, int y) { 
+	controlManager.HandleKeyDown(key, x, y); 
+}
+
+GLvoid KeyUp(unsigned char key, int x, int y) { 
+	controlManager.HandleKeyUp(key, x, y); 
+}
+
+GLvoid MouseMotion(int x, int y) { 
+	controlManager.HandleMouseMotion(x, y); 
+}
+
+GLvoid MouseClick(int button, int state, int x, int y) {
+	controlManager.HandleMouseClick(button, state, x, y); 
+}
