@@ -42,7 +42,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				WholeProgramOptimization="false"
-				AdditionalIncludeDirectories="&quot;C:\for-vs2008\CGAL-3.6.1\auxiliary\gmp\include&quot;;&quot;C:\Program Files (x86)\boost\boost_1_35_0&quot;;&quot;C:\for-vs2008\CGAL-3.6.1\include&quot;"
+				AdditionalIncludeDirectories="&quot;C:\Program Files (x86)\CGAL-3.6.1\auxiliary\gmp\include&quot;;&quot;C:\Program Files (x86)\boost\boost_1_35_0&quot;;&quot;C:\Program Files (x86)\CGAL-3.6.1\include&quot;"
 				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
