@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="fluids;common"
+				AdditionalIncludeDirectories="fluids;common;C:\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.1\C\common\inc\"
 				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE;BUILD_CUDA"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -169,6 +169,10 @@
 		</Configuration>
 	</Configurations>
 	<References>
+		<ProjectReference
+			ReferencedProjectIdentifier="{46FB0B73-5A53-444A-8E72-F4F0A373098C}"
+			RelativePathToProject="..\..\..\..\..\..\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.1\C\common\cutil_vs2008.vcproj"
+		/>
 	</References>
 	<Files>
 		<Filter
