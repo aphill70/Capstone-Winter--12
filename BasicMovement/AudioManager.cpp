@@ -5,7 +5,7 @@ AudioManager::~AudioManager(void) { }
 
 void AudioManager::PlayZoom(bool ZoomIn) {
 	if(ZoomIn)
-		PlaySound("zoomin2.wav", NULL, SND_FILENAME | SND_ASYNC);
+		PlaySound("res/zoomin2.wav", NULL, SND_FILENAME | SND_ASYNC);
 	else
-		PlaySound("zoomout2.wav", NULL, SND_FILENAME | SND_ASYNC);
+		PlaySound("res/zoomout2.wav", NULL, SND_FILENAME | SND_ASYNC);
 }

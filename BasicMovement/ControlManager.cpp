@@ -2,8 +2,6 @@
 
 #include <gl/glut.h>
 
-using namespace std;
-
 ControlManager::ControlManager(void) {
 	frozen = false;
 	

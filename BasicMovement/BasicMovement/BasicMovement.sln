@@ -5,6 +5,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BasicMovement", "BasicMovem
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E7DC5DAC-A17A-4695-BDA5-1F8CB2E524AD}"
 	ProjectSection(SolutionItems) = preProject
+		..\AudioManager.cpp = ..\AudioManager.cpp
+		..\AudioManager.h = ..\AudioManager.h
 		..\ControlManager.cpp = ..\ControlManager.cpp
 		..\ControlManager.h = ..\ControlManager.h
 		..\Globals.cpp = ..\Globals.cpp

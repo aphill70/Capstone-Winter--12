@@ -3,8 +3,6 @@
 
 #include <gl/glut.h>
 
-using namespace std;
-
 MouseInput::MouseInput(void) : xOffset(0), yOffset(0) {}
 
 MouseInput::~MouseInput(void) {}

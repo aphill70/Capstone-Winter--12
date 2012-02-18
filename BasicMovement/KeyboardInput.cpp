@@ -4,8 +4,6 @@
 #include "Globals.h"
 #include "KeyboardInput.h"
 
-using namespace std;
-
 KeyboardInput::KeyboardInput(void) : 
 		forwardPressed(false), backPressed(false), 
 		leftPressed(false), rightPressed(false), 

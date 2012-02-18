@@ -7,8 +7,6 @@
 
 #include <gl/glut.h>
 
-using namespace std;
-
 // Defines
 
 // Function prototypes
