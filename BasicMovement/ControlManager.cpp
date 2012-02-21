@@ -2,7 +2,9 @@
 
 #include <gl/glut.h>
 
+#if !defined (_MSC_VER)
 using namespace std;
+#endif
 
 ControlManager::ControlManager(void) {
 	frozen = false;
@@ -15,6 +17,7 @@ ControlManager::ControlManager(void) {
 
 	inputs[MOUSE_INPUT_INDEX] = &mouseInput;
 	inputs[KEYBOARD_INPUT_INDEX] = &keyboardInput;
+	inputs[HAPTIC_INPUT_INDEX] = &hapticInput;
 }
 
 ControlManager::~ControlManager(void) {}
@@ -38,9 +41,13 @@ void ControlManager::HandleMouseClick(int button, int state, int x, int y) {
 		frozen = !frozen;
 		mouseInput.RecenterMouse();
 		mouseInput.ShowCursor(frozen);
-		audioManager.PlayZoom(frozen);
+		//audioManager.PlayZoom(frozen);
 	}
 		
+}
+
+HapticInput& ControlManager::GetHapticInput(void) {
+	return hapticInput;
 }
 
 void ControlManager::UpdateWorldTransformations() {

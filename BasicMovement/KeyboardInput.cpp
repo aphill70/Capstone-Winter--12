@@ -4,7 +4,9 @@
 #include "Globals.h"
 #include "KeyboardInput.h"
 
+#if !defined (_MSC_VER)
 using namespace std;
+#endif
 
 KeyboardInput::KeyboardInput(void) : 
 		forwardPressed(false), backPressed(false), 
@@ -60,7 +62,7 @@ void KeyboardInput::HandleKeyPress(unsigned char key) {
 		resetPressed = true;
 		break;
 	case QUIT_BUTTON:						
-		exit(0);
+		ExitProgram(0);
 		break;
 	}
 }
@@ -101,7 +103,7 @@ void KeyboardInput::MoveForward(WorldTransformation& transform) {
 	double zComponent = cos(transform.rotateY * PI / 180.0) * xzComponent;
 
 	transform.xPos -= xComponent;
-	//transform.yPos += yComponent;
+	transform.yPos += yComponent;
 	transform.zPos += zComponent;
 }
 
@@ -112,7 +114,7 @@ void KeyboardInput::MoveBack(WorldTransformation& transform) {
 	double zComponent = cos(transform.rotateY * PI / 180.0) * xzComponent;
 
 	transform.xPos += xComponent;
-	//transform.yPos -= yComponent;
+	transform.yPos -= yComponent;
 	transform.zPos -= zComponent;
 }
 
@@ -141,9 +143,9 @@ void KeyboardInput::MoveUp(WorldTransformation& transform) {
 	double xComponent = sin(transform.rotateY * PI / 180.0) * xzComponent;
 	double zComponent = cos(transform.rotateY * PI / 180.0) * xzComponent;
 
-	//transform.xPos -= xComponent;
+	transform.xPos -= xComponent;
 	transform.yPos += yComponent;
-	//transform.zPos += zComponent;
+	transform.zPos += zComponent;
 }
 
 void KeyboardInput::MoveDown(WorldTransformation& transform) {
@@ -153,7 +155,7 @@ void KeyboardInput::MoveDown(WorldTransformation& transform) {
 	double xComponent = sin(transform.rotateY * PI / 180.0) * xzComponent;
 	double zComponent = cos(transform.rotateY * PI / 180.0) * xzComponent;
 
-	//transform.xPos += xComponent;
+	transform.xPos += xComponent;
 	transform.yPos -= yComponent;
-	//transform.zPos -= zComponent;
+	transform.zPos -= zComponent;
 }

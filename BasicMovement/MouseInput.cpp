@@ -3,7 +3,9 @@
 
 #include <gl/glut.h>
 
+#if !defined (_MSC_VER)
 using namespace std;
+#endif
 
 MouseInput::MouseInput(void) : xOffset(0), yOffset(0) {}
 

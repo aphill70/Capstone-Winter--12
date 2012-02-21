@@ -1,0 +1,47 @@
+[dhdDelta():16.02.54.0007] - Did not find FalconCommon.txt
+[dhdComUSB::dhdComUSB():16.02.54.0008] - Constructor
+[dhdDelta():16.02.54.0011] - Did not find FalconCommon.txt
+[dhdComUSB::dhdComUSB():16.02.54.0011] - Constructor
+[dhdDelta():16.02.54.0015] - Did not find FalconCommon.txt
+[dhdComUSB::dhdComUSB():16.02.54.0015] - Constructor
+[dhdDelta():16.02.54.0019] - Did not find FalconCommon.txt
+[dhdComUSB::dhdComUSB():16.02.54.0019] - Constructor
+[dhdDelta():16.02.54.0022] - Did not find FalconCommon.txt
+[dhdComUSB::dhdComUSB():16.02.54.0022] - Constructor
+[dhdDelta():16.02.54.0026] - Did not find FalconCommon.txt
+[dhdComUSB::dhdComUSB():16.02.54.0026] - Constructor
+[dhdDelta():16.02.54.0029] - Did not find FalconCommon.txt
+[dhdComUSB::dhdComUSB():16.02.54.0029] - Constructor
+[dhdDelta():16.02.54.0033] - Did not find FalconCommon.txt
+[dhdComUSB::dhdComUSB():16.02.54.0033] - Constructor
+[dhdDelta():16.02.54.0036] - Did not find FalconCommon.txt
+[dhdComUSB::dhdComUSB():16.02.54.0037] - Constructor
+[dhdDelta():16.02.54.0040] - Did not find FalconCommon.txt
+[dhdComUSB::dhdComUSB():16.02.54.0040] - Constructor
+[dhdOpenWithReset():16.02.54.1447] - currentDevice = 0, l_serNum = 16000011, is NOT smart
+[dhdOpenWithReset():16.02.54.1891] - l_serNum after getFileName = 16000011
+[dhdOpenWithReset():16.02.54.1894] - Found falcon_12_0101.bin at C:\Program Files (x86)\novint\HDAL_SDK_3.0.27\bin\falcon_12_0101.bin
+[dhdOpenWithReset():16.02.54.1895] - comUSB[0]open(16000011, C:\Program Files (x86)\novint\HDAL_SDK_3.0.27\bin\falcon_12_0101.bin, False)
+[dhdComUSB::open():16.02.54.1895] - Open(C:\Program Files (x86)\novint\HDAL_SDK_3.0.27\bin\falcon_12_0101.bin, false)
+[dhdComUSB::open():16.02.54.1996] - OpenUSBPort succeeded after 1 tries
+[dhdComUSB::open():16.02.54.1996] - deviceType = 0
+[dhdComUSB::open():16.02.54.1997] - deviceID   = 67357512d
+[dhdComUSB::open():16.02.54.1997] - deviceSN   = 16000011
+[dhdComUSB::open():16.02.54.1997] - deviceDesc = FALCON HAPTIC
+[dhdComUSB::OpenDeviceCommunications():16.02.54.2026] - Set Baud Rate Status: 0
+[dhdComUSB::OpenDeviceCommunications():16.02.54.2326] - update() okay after 1 updates
+[dhdComUSB::OpenDeviceCommunications():16.02.54.2326] - Returning 0
+[dhdComUSB::changeGrip():16.02.54.4327] - New Grip: G_A
+[dhdComUSB::changeGrip():16.02.54.4333] - Started grip change
+[changeGripThreadFunc::16.02.54.4335] - deleting old grip object
+[changeGripThreadFunc::16.02.54.4335] - Loading grip type G_A
+[changeGripThreadFunc::16.02.54.4366] - Loading delta
+[dhdDelta():16.02.54.4369] - Did not find FalconCommon.txt
+[changeGripThreadFunc::16.02.54.4370] - Done loading new grip
+[dhdComUSB::processData():16.02.54.4637] - G_A
+[dhdComUSB::tryCalibration():16.02.54.5427] - HomeDisabled, LED Blue
+[dhdComUSB::processData():16.03.01.7739] - G_A
+[dhdComUSB::processData():16.03.32.7102] - G_A
+[dhdComUSB::processData():16.03.33.2111] - G_A
+[dhdComUSB::dhdComUSB():16.04.23.1710] - Constructor
+[dhdComUSB::close():16.04.23.1711] - Closed

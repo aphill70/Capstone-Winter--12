@@ -40,6 +40,8 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
+				AdditionalIncludeDirectories="&quot;C:\Users\Nathan S\Desktop\Capstone-Winter--12\haptics\lib\chai3d-2.0.0\external\hdFalcon\include&quot;;&quot;C:\Users\Nathan S\Desktop\Capstone-Winter--12\haptics\lib\chai3d-2.0.0\src&quot;;&quot;C:\Users\Nathan S\Desktop\Capstone-Winter--12\haptics\lib\chai3d-2.0.0\external\OpenGL\msvc&quot;"
+				PreprocessorDefinitions="_MSVC;_WIN32"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -57,6 +59,8 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
+				AdditionalDependencies="chai3d-debug.lib"
+				AdditionalLibraryDirectories="&quot;C:\Users\Nathan S\Desktop\Capstone-Winter--12\haptics\lib\chai3d-2.0.0\external\hdFalcon\lib&quot;;&quot;C:\Users\Nathan S\Desktop\Capstone-Winter--12\haptics\lib\chai3d-2.0.0\src&quot;;&quot;C:\Users\Nathan S\Desktop\Capstone-Winter--12\haptics\lib\chai3d-2.0.0\external\hdFalcon\msvc7&quot;;&quot;..\..\haptics\lib\chai3d-2.0.0\lib\msvc9&quot;"
 				GenerateDebugInformation="true"
 				TargetMachine="1"
 			/>
@@ -170,6 +174,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\HapticInput.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\KeyboardInput.cpp"
 				>
 			</File>
@@ -196,6 +204,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\HapticInput.h"
+				>
+			</File>
+			<File
 				RelativePath="..\IControlInput.h"
 				>
 			</File>
@@ -218,6 +230,10 @@
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
 		</Filter>
+		<File
+			RelativePath=".\ClassDiagram1.cd"
+			>
+		</File>
 	</Files>
 	<Globals>
 	</Globals>
