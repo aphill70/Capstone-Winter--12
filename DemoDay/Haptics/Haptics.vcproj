@@ -177,7 +177,19 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
+				RelativePath=".\FalconDevice.h"
+				>
+			</File>
+			<File
 				RelativePath=".\IHapticDevice.h"
+				>
+			</File>
+			<File
+				RelativePath=".\IHapticMode.h"
+				>
+			</File>
+			<File
+				RelativePath=".\ViscositySenseMode.h"
 				>
 			</File>
 		</Filter>

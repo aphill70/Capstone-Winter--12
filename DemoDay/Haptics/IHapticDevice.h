@@ -12,4 +12,6 @@ public:
 	 * Takes the current linear velocity of the haptic cursor and copies it into destination
 	 */
 	virtual void GetCursorVelocity(cVector3d& destination) = 0;
+
+	virtual void Init(void) = 0;
 }
