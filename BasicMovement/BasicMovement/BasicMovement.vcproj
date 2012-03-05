@@ -5,6 +5,7 @@
 	Name="BasicMovement"
 	ProjectGUID="{CDB98ADB-7E1A-412C-9F8A-098C4B3A6B86}"
 	RootNamespace="BasicMovement"
+	AssemblyReferenceSearchPaths="&quot;$(CHAI_ROOT)\bin&quot;"
 	TargetFrameworkVersion="196613"
 	>
 	<Platforms>
@@ -40,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;C:\Users\Nathan S\Desktop\Capstone-Winter--12\haptics\lib\chai3d-2.0.0\external\hdFalcon\include&quot;;&quot;C:\Users\Nathan S\Desktop\Capstone-Winter--12\haptics\lib\chai3d-2.0.0\src&quot;;&quot;C:\Users\Nathan S\Desktop\Capstone-Winter--12\haptics\lib\chai3d-2.0.0\external\OpenGL\msvc&quot;"
+				AdditionalIncludeDirectories="&quot;$(CHAI_ROOT)\external\hdFalcon\include&quot;;&quot;$(CHAI_ROOT)\src&quot;"
 				PreprocessorDefinitions="_MSVC;_WIN32"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -60,7 +61,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="chai3d-debug.lib"
-				AdditionalLibraryDirectories="&quot;C:\Users\Nathan S\Desktop\Capstone-Winter--12\haptics\lib\chai3d-2.0.0\external\hdFalcon\lib&quot;;&quot;C:\Users\Nathan S\Desktop\Capstone-Winter--12\haptics\lib\chai3d-2.0.0\src&quot;;&quot;C:\Users\Nathan S\Desktop\Capstone-Winter--12\haptics\lib\chai3d-2.0.0\external\hdFalcon\msvc7&quot;;&quot;..\..\haptics\lib\chai3d-2.0.0\lib\msvc9&quot;"
+				AdditionalLibraryDirectories="&quot;$(CHAI_ROOT)\lib\msvc9&quot;"
 				GenerateDebugInformation="true"
 				TargetMachine="1"
 			/>
