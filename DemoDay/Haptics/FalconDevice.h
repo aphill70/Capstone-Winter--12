@@ -1,7 +1,5 @@
 #pragma once
 
-#include "chai3d.h"
-
 #include "IHapticDevice.h"
 #include "IHapticMode.h"
 #include "ITerrain.h"
@@ -9,13 +7,14 @@
 
 class FalconDevice : public IHapticDevice {
 private:
-	IHapticMode* mode;
-	cGenericHapticDevice device;
+	cGenericHapticDevice* device;
 	cVector3d cursorPosition;
 	cVector3d cursorVelocity;
 
 	ITerrain* terrain;
 	IFluid* fluid;
+
+	void CenterHapticDevice(void);
 public:
 	FalconDevice(void);
 	~FalconDevice(void);
@@ -26,6 +25,4 @@ public:
 
 	void GetCursorPosition(cVector3d& destination);
 	void GetCursorVelocity(cVector3d& destination);
-
-	virtual void ChangeMode(IHapticMode* newMode);
-}
+};
