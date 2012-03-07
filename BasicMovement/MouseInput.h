@@ -13,5 +13,9 @@ public:
 	~MouseInput(void);
 
 	void HandleMouseInput(int x, int y);
+	void HandleMouseClick(int button, int state, int x, int y);
+	void RecenterMouse();
+	void ShowCursor(bool);
+
 	virtual void ModifyTransformations(WorldTransformation& transform);
 };

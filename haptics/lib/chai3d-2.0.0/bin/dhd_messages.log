@@ -1,46 +1,364 @@
-[dhdDelta():18.11.15.0005] - Did not find FalconCommon.txt
-[dhdComUSB::dhdComUSB():18.11.15.0006] - Constructor
-[dhdDelta():18.11.15.0008] - Did not find FalconCommon.txt
-[dhdComUSB::dhdComUSB():18.11.15.0008] - Constructor
-[dhdDelta():18.11.15.0010] - Did not find FalconCommon.txt
-[dhdComUSB::dhdComUSB():18.11.15.0010] - Constructor
-[dhdDelta():18.11.15.0013] - Did not find FalconCommon.txt
-[dhdComUSB::dhdComUSB():18.11.15.0013] - Constructor
-[dhdDelta():18.11.15.0015] - Did not find FalconCommon.txt
-[dhdComUSB::dhdComUSB():18.11.15.0015] - Constructor
-[dhdDelta():18.11.15.0017] - Did not find FalconCommon.txt
-[dhdComUSB::dhdComUSB():18.11.15.0017] - Constructor
-[dhdDelta():18.11.15.0019] - Did not find FalconCommon.txt
-[dhdComUSB::dhdComUSB():18.11.15.0019] - Constructor
-[dhdDelta():18.11.15.0021] - Did not find FalconCommon.txt
-[dhdComUSB::dhdComUSB():18.11.15.0021] - Constructor
-[dhdDelta():18.11.15.0023] - Did not find FalconCommon.txt
-[dhdComUSB::dhdComUSB():18.11.15.0023] - Constructor
-[dhdDelta():18.11.15.0025] - Did not find FalconCommon.txt
-[dhdComUSB::dhdComUSB():18.11.15.0025] - Constructor
-[dhdOpenWithReset():18.11.15.1395] - currentDevice = 0, l_serNum = 16000011, is NOT smart
-[dhdOpenWithReset():18.11.15.1841] - l_serNum after getFileName = 16000011
-[dhdOpenWithReset():18.11.15.1843] - Found falcon_12_0101.bin at C:\Program Files (x86)\novint\HDAL_SDK_3.0.27\bin\falcon_12_0101.bin
-[dhdOpenWithReset():18.11.15.1843] - comUSB[0]open(16000011, C:\Program Files (x86)\novint\HDAL_SDK_3.0.27\bin\falcon_12_0101.bin, False)
-[dhdComUSB::open():18.11.15.1844] - Open(C:\Program Files (x86)\novint\HDAL_SDK_3.0.27\bin\falcon_12_0101.bin, false)
-[dhdComUSB::open():18.11.15.1945] - OpenUSBPort succeeded after 1 tries
-[dhdComUSB::open():18.11.15.1945] - deviceType = 0
-[dhdComUSB::open():18.11.15.1945] - deviceID   = 67357512d
-[dhdComUSB::open():18.11.15.1946] - deviceSN   = 16000011
-[dhdComUSB::open():18.11.15.1946] - deviceDesc = FALCON HAPTIC
-[dhdComUSB::OpenDeviceCommunications():18.11.15.1975] - Set Baud Rate Status: 0
-[dhdComUSB::OpenDeviceCommunications():18.11.15.2258] - update() okay after 1 updates
-[dhdComUSB::OpenDeviceCommunications():18.11.15.2258] - Returning 0
-[dhdComUSB::changeGrip():18.11.15.4259] - New Grip: G_A
-[dhdComUSB::changeGrip():18.11.15.4260] - Started grip change
-[changeGripThreadFunc::18.11.15.4262] - deleting old grip object
-[changeGripThreadFunc::18.11.15.4262] - Loading grip type G_A
-[changeGripThreadFunc::18.11.15.4276] - Loading delta
-[dhdDelta():18.11.15.4279] - Did not find FalconCommon.txt
-[changeGripThreadFunc::18.11.15.4279] - Done loading new grip
-[dhdComUSB::processData():18.11.15.5692] - G_A
-[dhdComUSB::tryCalibration():18.11.16.1940] - HomeDisabled, LED Blue
-[dhdComUSB::processData():18.11.16.5727] - G_A
-[dhdComUSB::processData():18.13.05.6519] - G_A
-[dhdComUSB::dhdComUSB():18.13.28.7591] - Constructor
-[dhdComUSB::close():18.13.28.7592] - Closed
+[dhdDelta():15.32.28.0002] - Did not find FalconCommon.txt
+[dhdComUSB::dhdComUSB():15.32.28.0002] - Constructor
+[dhdDelta():15.32.28.0003] - Did not find FalconCommon.txt
+[dhdComUSB::dhdComUSB():15.32.28.0003] - Constructor
+[dhdDelta():15.32.28.0004] - Did not find FalconCommon.txt
+[dhdComUSB::dhdComUSB():15.32.28.0004] - Constructor
+[dhdDelta():15.32.28.0005] - Did not find FalconCommon.txt
+[dhdComUSB::dhdComUSB():15.32.28.0006] - Constructor
+[dhdDelta():15.32.28.0006] - Did not find FalconCommon.txt
+[dhdComUSB::dhdComUSB():15.32.28.0007] - Constructor
+[dhdDelta():15.32.28.0008] - Did not find FalconCommon.txt
+[dhdComUSB::dhdComUSB():15.32.28.0008] - Constructor
+[dhdDelta():15.32.28.0009] - Did not find FalconCommon.txt
+[dhdComUSB::dhdComUSB():15.32.28.0009] - Constructor
+[dhdDelta():15.32.28.0010] - Did not find FalconCommon.txt
+[dhdComUSB::dhdComUSB():15.32.28.0010] - Constructor
+[dhdDelta():15.32.28.0011] - Did not find FalconCommon.txt
+[dhdComUSB::dhdComUSB():15.32.28.0011] - Constructor
+[dhdDelta():15.32.28.0012] - Did not find FalconCommon.txt
+[dhdComUSB::dhdComUSB():15.32.28.0012] - Constructor
+[dhdOpenWithReset():15.32.28.3872] - currentDevice = 0, l_serNum = 16000011, is NOT smart
+[dhdOpenWithReset():15.32.28.5153] - l_serNum after getFileName = 16000011
+[dhdOpenWithReset():15.32.28.5154] - Found falcon_12_0101.bin at C:\Program Files (x86)\novint\HDAL_SDK_3.0.27\bin\falcon_12_0101.bin
+[dhdOpenWithReset():15.32.28.5154] - comUSB[0]open(16000011, C:\Program Files (x86)\novint\HDAL_SDK_3.0.27\bin\falcon_12_0101.bin, False)
+[dhdComUSB::open():15.32.28.5154] - Open(C:\Program Files (x86)\novint\HDAL_SDK_3.0.27\bin\falcon_12_0101.bin, false)
+[dhdComUSB::open():15.32.28.5314] - OpenUSBPort succeeded after 1 tries
+[dhdComUSB::open():15.32.28.5314] - deviceType = 0
+[dhdComUSB::open():15.32.28.5314] - deviceID   = 67357512d
+[dhdComUSB::open():15.32.28.5314] - deviceSN   = 16000011
+[dhdComUSB::open():15.32.28.5314] - deviceDesc = FALCON HAPTIC
+[dhdComUSB::open():15.32.29.5306] - Starting Download
+[dhdComUSB::DownloadCode():15.32.30.8288] - SetUSBParameters(24012D8,128,128)
+[dhdComUSB::DownloadCode():15.32.30.8386] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.30.8387] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.30.8486] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.30.8496] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.30.8496] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.30.8497] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.30.8596] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.30.8606] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.30.8606] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.30.8607] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.30.8706] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.30.8716] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.30.8716] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.30.8716] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.30.8816] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.30.8826] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.30.8826] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.30.8827] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.30.8926] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.30.8936] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.30.8936] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.30.8937] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.30.9036] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.30.9046] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.30.9046] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.30.9047] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.30.9146] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.30.9156] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.30.9156] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.30.9157] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.30.9256] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.30.9266] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.30.9266] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.30.9267] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.30.9366] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.30.9376] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.30.9376] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.30.9377] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.30.9476] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.30.9486] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.30.9486] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.30.9487] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.30.9586] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.30.9596] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.30.9596] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.30.9596] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.30.9696] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.30.9706] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.30.9706] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.30.9706] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.30.9806] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.30.9816] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.30.9816] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.30.9816] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.30.9916] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.30.9924] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.30.9924] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.30.9925] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.0025] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.0035] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.0035] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.0035] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.0135] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.0145] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.0145] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.0145] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.0245] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.0255] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.0255] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.0255] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.0354] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.0365] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.0365] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.0365] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.0464] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.0475] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.0475] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.0475] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.0574] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.0585] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.0585] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.0585] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.0685] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.0695] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.0695] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.0695] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.0795] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.0805] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.0806] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.0806] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.0905] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.0915] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.0915] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.0915] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.1014] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.1025] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.1025] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.1025] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.1125] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.1135] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.1135] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.1135] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.1234] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.1245] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.1245] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.1245] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.1344] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.1354] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.1355] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.1355] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.1454] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.1464] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.1464] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.1465] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.1564] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.1575] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.1575] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.1575] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.1674] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.1684] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.1685] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.1685] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.1784] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.1795] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.1795] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.1795] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.1893] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.1903] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.1904] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.1904] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.2003] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.2013] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.2014] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.2014] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.2113] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.2123] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.2124] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.2124] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.2223] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.2233] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.2233] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.2234] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.2333] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.2343] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.2344] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.2344] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.2443] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.2453] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.2454] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.2454] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.2553] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.2563] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.2563] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.2564] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.2663] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.2672] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.2672] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.2672] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.2773] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.2783] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.2783] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.2784] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.2883] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.2893] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.2893] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.2894] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.2993] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.3003] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.3004] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.3004] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.3103] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.3113] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.3114] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.3114] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.3213] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.3224] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.3224] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.3224] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.3323] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.3335] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.3335] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.3335] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.3433] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.3444] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.3444] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.3444] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.3543] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.3554] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.3554] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.3554] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.3653] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.3663] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.3664] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.3664] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.3762] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.3772] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.3772] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.3772] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.3872] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.3882] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.3882] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.3883] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.3982] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.3992] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.3992] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.3993] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.4092] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.4102] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.4102] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.4103] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.4202] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.4212] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.4212] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.4213] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.4312] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.4322] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.4322] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.4323] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.4422] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.4432] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.4432] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.4433] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.4532] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.4542] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.4542] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.4543] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.4642] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.4652] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.4652] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.4653] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.4752] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.4762] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.4762] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.4763] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.4862] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.4872] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.4872] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.4873] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.4972] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.4981] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.4981] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.4981] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.5082] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.5092] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.5092] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.5092] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.5192] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.5202] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.5202] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.5202] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.5302] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.5311] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.5311] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.5311] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.5412] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.5422] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.5422] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.5422] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.5521] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.5531] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.5531] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.5531] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.5631] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.5641] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.5641] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.5641] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.5741] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.5752] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.5752] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.5752] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.5851] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.5861] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.5861] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.5861] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.5961] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.5971] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.5971] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.5971] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.6071] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.6079] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.6079] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.6080] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.6181] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.6189] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.6189] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.6190] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.6291] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.6301] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.6301] - Read 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.6301] - Sent 128 bytes
+[dhdComUSB::DownloadCode():15.32.31.6401] - 128 chars available
+[dhdComUSB::DownloadCode():15.32.31.6411] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.6411] - Read 74 bytes
+[dhdComUSB::DownloadCode():15.32.31.6411] - Sent 74 bytes
+[dhdComUSB::DownloadCode():15.32.31.6471] - 74 chars available
+[dhdComUSB::DownloadCode():15.32.31.6479] - ReadFile done
+[dhdComUSB::DownloadCode():15.32.31.6479] - Download done
+[dhdComUSB::open():15.32.31.6480] - Download status: 0
+[dhdComUSB::OpenDeviceCommunications():15.32.31.6482] - Set Baud Rate Status: 0
+[dhdComUSB::OpenDeviceCommunications():15.32.31.6776] - update() okay after 1 updates
+[dhdComUSB::OpenDeviceCommunications():15.32.31.6777] - Returning 0
+[dhdComUSB::changeGrip():15.32.31.8777] - New Grip: G_A
+[dhdComUSB::changeGrip():15.32.31.8778] - Started grip change
+[changeGripThreadFunc::15.32.31.8779] - deleting old grip object
+[changeGripThreadFunc::15.32.31.8779] - Loading grip type G_A
+[changeGripThreadFunc::15.32.31.8787] - Loading delta
+[dhdDelta():15.32.31.8788] - Did not find FalconCommon.txt
+[changeGripThreadFunc::15.32.31.8789] - Done loading new grip
+[dhdComUSB::tryCalibration():15.32.31.9865] - HomeEnabled, LED Red
+[dhdComUSB::processData():15.32.33.4758] - G_A
+[dhdComUSB::tryCalibration():15.32.46.3494] - HomeDisabled, LED Blue
+[dhdComUSB::processData():15.32.56.6959] - G_A
+[dhdComUSB::processData():15.33.03.2012] - G_A
+[dhdComUSB::processData():15.33.03.7022] - G_A
+[dhdComUSB::processData():15.33.15.7138] - G_A
+[dhdComUSB::processData():15.33.16.2158] - G_A
+[dhdComUSB::processData():15.33.17.2168] - G_A
+[dhdComUSB::processData():15.33.21.7200] - G_A
+[dhdComUSB::processData():15.33.22.2221] - G_A
+[dhdComUSB::processData():15.33.22.7221] - G_A
+[dhdComUSB::processData():15.33.37.7368] - G_A
+[dhdComUSB::processData():15.33.38.7388] - G_A
+[dhdComUSB::processData():15.33.43.7431] - G_A
+[dhdComUSB::processData():15.33.45.7461] - G_A
+[dhdComUSB::processData():15.33.47.7473] - G_A
+[dhdComUSB::processData():15.33.48.2483] - G_A
+[dhdComUSB::processData():15.33.52.7526] - G_A
+[dhdComUSB::processData():15.33.53.2535] - G_A
+[dhdComUSB::processData():15.33.54.7547] - G_A
+[dhdComUSB::processData():15.34.00.7609] - G_A
+[dhdComUSB::dhdComUSB():15.34.01.9450] - Constructor
+[dhdComUSB::close():15.34.01.9451] - Closed

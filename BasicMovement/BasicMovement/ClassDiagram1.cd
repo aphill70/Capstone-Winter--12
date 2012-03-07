@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ControlManager" Collapsed="true">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAgAAABEAAAAIAAAAAAAAAAgAABIAAOAIAAAAAAA=</HashCode>
+      <FileName>c:\Users\Nathan S\Desktop\Capstone-Winter--12\BasicMovement\ControlManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IControlInput" Collapsed="true">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>c:\Users\Nathan S\Desktop\Capstone-Winter--12\BasicMovement\IControlInput.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KeyboardInput" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAFAIAAIAABAAAAAAQAAACAAAAEAAAgIQCARAAgAgAA=</HashCode>
+      <FileName>c:\Users\Nathan S\Desktop\Capstone-Winter--12\BasicMovement\KeyboardInput.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MouseInput" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEgAAAAAAAAAAAAAAAABAQAAAAAgAAAAwAIAAgAA=</HashCode>
+      <FileName>c:\Users\Nathan S\Desktop\Capstone-Winter--12\BasicMovement\MouseInput.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="worldTransformation" Collapsed="true">
+    <Position X="1.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgGAAAAAAAAIAAAAAAAQAAAAA=</HashCode>
+      <FileName>c:\Users\Nathan S\Desktop\Capstone-Winter--12\BasicMovement\WorldTransformation.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Typedef Name="WorldTransformation" Collapsed="true">
+    <Position X="1.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>c:\Users\Nathan S\Desktop\Capstone-Winter--12\BasicMovement\WorldTransformation.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
