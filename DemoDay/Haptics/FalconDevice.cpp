@@ -1,4 +1,5 @@
 #include "FalconDevice.h"
+#include "ViscositySenseMode.h"
 
 /*
 private:
@@ -11,27 +12,18 @@ private:
 */
 	
 FalconDevice::FalconDevice(void) {
+	mode = 0;
 }
 
 FalconDevice::~FalconDevice(void) {
-}
 	
-void FalconDevice::Init(void) {
-	cHapticDeviceHandler handler;
-	handler.getDevice(device, 0);
-	device->open();
-	device->initialize(false);
+}
 
-	cHapticDeviceInfo specs = device->getSpecifications();
-	//TODO: decide where to put these
-	//double MAX_HAPTIC_FORCE = specs.m_maxForce;
-	//double HAPTIC_RADIUS = specs.m_workspaceRadius;
-
-	CenterHapticDevice();
-
-	//TODO: find out if this is working
-	//cThread* hapticsThread = new cThread();
-    //hapticsThread->set(UpdateHaptics, CHAI_THREAD_PRIORITY_HAPTICS);
+void FalconDevice::SetMode(IHapticMode* newMode) {
+	IHapticDevice::SetMode(newMode);
+	if (ViscositySenseMode* senseMode = dynamic_cast<ViscositySenseMode*>(newMode)) {
+		senseMode->SetDevice(this);
+	}
 }
 
 void FalconDevice::SetTerrain(ITerrain* newTerrain) {
@@ -43,11 +35,23 @@ void FalconDevice::SetFluid(IFluid* newFluid) {
 }
 
 void FalconDevice::GetCursorPosition(cVector3d& destination) {
+	cVector3d temp;
+	chaiDevice->getPosition(temp);
 
+	// The Falcon's position components are mapped to the wrong fields; this
+	//  just remaps them to the correct fields
+	destination.x = temp.y;
+	destination.y = temp.z;
+	destination.z = temp.x;
 }
 
 void FalconDevice::GetCursorVelocity(cVector3d& destination) {
-}
+	cVector3d temp;
+	chaiDevice->getLinearVelocity(temp);
 
-void FalconDevice::CenterHapticDevice(void) {
+	// The Falcon's position components are mapped to the wrong fields; this
+	//  just remaps them to the correct fields
+	destination.x = temp.y;
+	destination.y = temp.z;
+	destination.z = temp.x;
 }

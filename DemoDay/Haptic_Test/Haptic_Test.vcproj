@@ -6,6 +6,7 @@
 	ProjectGUID="{64DEFCA9-1BFB-4875-974E-E4C81BCD303B}"
 	RootNamespace="Haptic_Test"
 	Keyword="Win32Proj"
+	AssemblyReferenceSearchPaths="&quot;.\Debug&quot;"
 	TargetFrameworkVersion="196613"
 	>
 	<Platforms>
@@ -61,8 +62,9 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
+				AdditionalDependencies="chai3d-debug.lib"
 				LinkIncremental="2"
-				AdditionalLibraryDirectories=""
+				AdditionalLibraryDirectories="$(CHAI_ROOT)\lib\msvc9"
 				GenerateDebugInformation="true"
 				SubSystem="1"
 				TargetMachine="1"

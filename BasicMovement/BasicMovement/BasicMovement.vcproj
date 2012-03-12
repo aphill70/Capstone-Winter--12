@@ -42,7 +42,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories="&quot;$(CHAI_ROOT)\external\hdFalcon\include&quot;;&quot;$(CHAI_ROOT)\src&quot;"
-				PreprocessorDefinitions="_MSVC;_WIN32"
+				PreprocessorDefinitions="_MSVC;WIN32"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"

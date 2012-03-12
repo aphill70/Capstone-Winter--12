@@ -1,9 +1,16 @@
-#include "IHapticDevice.h"
 #include "FalconDevice.h"
+#include "IHapticMode.h"
+#include "ViscositySenseMode.h"
 
 int main (void) {
+	FalconDevice falcon;
+	falcon.Init();
 
-	IHapticDevice* device = new FalconDevice();
+	IHapticMode* mode = ViscositySenseMode::GetSingleton();
+	falcon.SetMode(mode);
+	while (true) {
+		mode->Tick();
+	}
 
 	return 0;
 }
