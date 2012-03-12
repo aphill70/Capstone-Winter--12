@@ -12,6 +12,7 @@ public:
 		CONSTANT_VELOCITY
 	};
 	HapticsFluidTest(const e_TestMode mode, const cVector3d initial);
+	~HapticsFluidTest();
 	void GetVelocityAt(cVector3d& velocity, const cVector3d& location);
 	void GetAllPoints(std::vector<cVector3d>&) {}
 	void SetTerrain(ITerrain*) {}
