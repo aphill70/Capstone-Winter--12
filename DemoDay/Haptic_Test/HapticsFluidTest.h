@@ -1,27 +1,20 @@
 #pragma once
 #include "chai3d.h"
 #include "IFluid.h"
+#include "HapticTestRunner.h"
+#include "ConstRunner.h"
+#include "ITerrain.h"
+#include <vector>
 
 class HapticsFluidTest : public IFluid {
 public:
-	
-	enum e_TestMode = {
+	enum e_TestMode {
 		CONSTANT_VELOCITY
-	}
-
-	HapticFluidTest();
-	HapticFluidTest(e_TestMode mode, cVector3d initial);
-	void GetAllPoints(std::vector<cVector3d>& destination);
+	};
+	HapticsFluidTest(const e_TestMode mode, const cVector3d initial);
 	void GetVelocityAt(cVector3d& velocity, const cVector3d& location);
+	void GetAllPoints(std::vector<cVector3d>&) {}
+	void SetTerrain(ITerrain*) {}
 private:
-	void ProcessRequest(cVector3d& velocity, const cVector3d& location);
-	HapticTestRunner testRunner;
-}
-
-class ConstantHapticTestRunner : public HapticTestRunner {
-public:
-	ConstantHapticTestRunner(cVector3d velocity); 
-	void ComputeVelocity(cVector3d& velocity, const cVector3d& location);
-private:
-	cVector3d velocity;
-}
+	HapticTestRunner * testRunner;
+};
