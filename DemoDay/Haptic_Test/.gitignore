@@ -1,0 +1,7 @@
+*.suo
+*.user
+*.log
+Debug*/
+Release*/
+[Oo]bj/
+[Bb]in/

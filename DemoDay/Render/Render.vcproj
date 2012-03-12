@@ -153,6 +153,18 @@
 		</Configuration>
 	</Configurations>
 	<References>
+		<ProjectReference
+			ReferencedProjectIdentifier="{2B8E1002-BC22-4E41-9DBE-296A99C64047}"
+			RelativePathToProject=".\Fluids\Fluids.vcproj"
+		/>
+		<ProjectReference
+			ReferencedProjectIdentifier="{7830F8C5-9DA6-4E4B-B2D3-E9B13CC50D0B}"
+			RelativePathToProject=".\Haptics\Haptics.vcproj"
+		/>
+		<ProjectReference
+			ReferencedProjectIdentifier="{3AF663BD-BA92-415C-96A3-2AE40969F19F}"
+			RelativePathToProject=".\Terrain\Terrain.vcproj"
+		/>
 	</References>
 	<Files>
 		<Filter

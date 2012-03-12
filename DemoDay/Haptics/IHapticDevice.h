@@ -1,13 +1,19 @@
 #pragma once
 
+// Idea: create handlers for button presses
+
 #include "chai3d.h"
 #include "IHapticMode.h"
 
+class IHapticMode;
+
 class IHapticDevice {
-private:
+protected:
 	// Mode determines how the haptic device will react
 	IHapticMode* mode;
 public:
+	virtual ~IHapticDevice(void) {}
+
 	// Takes the current position of the haptic cursor and copies it into destination
 	virtual void GetCursorPosition(cVector3d& destination) = 0;
 	
@@ -16,6 +22,7 @@ public:
 
 	// Initializes the haptic device. The device is ready to use once this function returns.
 	//TODO: decide if SetTerrain and SetFluid must be called before this function is called.
+	//   If not, move this code to the constructor
 	virtual void Init(void) = 0;
 
 	// Changes the haptic mode of the device

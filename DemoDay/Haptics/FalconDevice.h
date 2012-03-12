@@ -1,24 +1,23 @@
 #pragma once
 
 #include "IHapticDevice.h"
+#include "GenericDevice.h"
 #include "IHapticMode.h"
 #include "ITerrain.h"
 #include "IFluid.h"
 
-class FalconDevice : public IHapticDevice {
+class FalconDevice : public GenericDevice {
 private:
-	cGenericHapticDevice* device;
 	cVector3d cursorPosition;
 	cVector3d cursorVelocity;
 
 	ITerrain* terrain;
 	IFluid* fluid;
-
-	void CenterHapticDevice(void);
 public:
 	FalconDevice(void);
 	~FalconDevice(void);
-	virtual void Init(void);
+
+	virtual void SetMode(IHapticMode* newMode);
 
 	void SetTerrain(ITerrain* newTerrain);
 	void SetFluid(IFluid* newFluid);
