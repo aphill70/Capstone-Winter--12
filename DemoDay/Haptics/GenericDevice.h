@@ -15,4 +15,7 @@ protected:
 	void CenterHapticDevice(void);
 public:
 	virtual void Init(void);
+
+	virtual double GetMaxForce(void);
+	virtual double GetHapticRadius(void);
 };

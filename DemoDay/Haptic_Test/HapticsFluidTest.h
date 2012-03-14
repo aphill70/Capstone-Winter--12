@@ -9,7 +9,13 @@
 class HapticsFluidTest : public IFluid {
 public:
 	enum e_TestMode {
-		CONSTANT_VELOCITY
+		CONSTANT_VELOCITY,
+		X_AXIS_OSCILLATING,
+		Y_AXIS_OSCILLATING,
+		Z_AXIS_OSCILLATING,
+		XY_PLANE_OSCILLATING,
+		YZ_PLANE_OSCILLATING,
+		XZ_PLANE_OSCILLATING,
 	};
 	HapticsFluidTest(const e_TestMode mode, const cVector3d initial);
 	~HapticsFluidTest();

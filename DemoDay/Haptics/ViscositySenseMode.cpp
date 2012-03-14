@@ -1,4 +1,5 @@
 #include "chai3d.h"
+#include "FalconDevice.h"
 #include "ViscositySenseMode.h"
 
 IHapticMode* ViscositySenseMode::singleton = 0;
@@ -8,12 +9,16 @@ ViscositySenseMode::ViscositySenseMode(void) : maxViscosity(8), standardViscosit
 ViscositySenseMode::~ViscositySenseMode(void) {}
 
 void ViscositySenseMode::Tick(void) {
-	cVector3d destination;
-	device->GetCursorVelocity(destination);
-	destination.mul(-1);
+	cVector3d linearVelocity;
+	device->GetCursorVelocity(linearVelocity);
+	double forcePercent = linearVelocity.length() / MAX_SPEED;
+	linearVelocity.mul(-forcePercent * device->GetMaxForce());
+
 	GenericDevice* genDevice = dynamic_cast<GenericDevice*>(device);
 	cGenericHapticDevice* haptic = genDevice->chaiDevice;
-	haptic->setForce(destination);
+
+	FalconDevice::ConvertToDeviceAxes(linearVelocity);
+	haptic->setForce(linearVelocity);
 }
 
 IHapticMode* ViscositySenseMode::GetSingleton(void){

@@ -13,3 +13,4 @@ ConstantHapticTestRunner::ConstantHapticTestRunner(cVector3d velocity) : _veloci
 void ConstantHapticTestRunner::ComputeVelocity(cVector3d& velocity, const cVector3d& location) {
 	velocity = _velocity;
 }
+	
