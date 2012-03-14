@@ -3,6 +3,8 @@
 #include "IHapticMode.h"
 #include "GenericDevice.h"
 
+#define MAX_SPEED 0.4
+
 class ViscositySenseMode : public IHapticMode {
 private:
 	static IHapticMode* singleton;

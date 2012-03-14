@@ -1,17 +1,9 @@
+#include "chai3d.h"
+
 #include "FalconDevice.h"
 #include "HapticsFluidTest.h"
-#include "chai3d.h"
 #include "IHapticMode.h"
 #include "ViscositySenseMode.h"
-
-
-int	main(void) {
-	if(true) {
-		return bradsMain();
-	} else {
-		return	nathanMain();
-	}
-}
 
 int bradsMain (void) {
 	FalconDevice falcon;
@@ -27,6 +19,15 @@ int bradsMain (void) {
 }
 
 int nathanMain(void) {
+	cVector3d initial;
 	IFluid * driver = new HapticsFluidTest(HapticsFluidTest::CONSTANT_VELOCITY, initial);
 	return 0;
+}
+
+int	main(void) {
+	if(true) {
+		return bradsMain();
+	} else {
+		return	nathanMain();
+	}
 }

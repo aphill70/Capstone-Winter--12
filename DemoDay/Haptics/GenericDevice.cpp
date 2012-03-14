@@ -6,9 +6,8 @@ void GenericDevice::Init(void) {
 	chaiDevice->initialize(false);
 
 	cHapticDeviceInfo specs = chaiDevice->getSpecifications();
-	//TODO: decide where to put these
-	//double MAX_HAPTIC_FORCE = specs.m_maxForce;
-	//double HAPTIC_RADIUS = specs.m_workspaceRadius;
+	maxForce = specs.m_maxForce;
+	hapticRadius = specs.m_workspaceRadius;
 
 	CenterHapticDevice();
 
@@ -49,3 +48,7 @@ void GenericDevice::CenterHapticDevice(void) {
 		chaiDevice->setForce(currPos);
 	}
 }
+
+double GenericDevice::GetMaxForce(void) { return maxForce; }
+
+double GenericDevice::GetHapticRadius(void) { return hapticRadius; }

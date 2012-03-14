@@ -22,6 +22,9 @@ public:
 	void SetTerrain(ITerrain* newTerrain);
 	void SetFluid(IFluid* newFluid);
 
-	void GetCursorPosition(cVector3d& destination);
-	void GetCursorVelocity(cVector3d& destination);
+	virtual void GetCursorPosition(cVector3d& destination);
+	virtual void GetCursorVelocity(cVector3d& destination);
+
+	static void ConvertToDeviceAxes(cVector3d& vector);
+	static void ConvertFromDeviceAxes(cVector3d& vector);
 };
