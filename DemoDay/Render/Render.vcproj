@@ -178,6 +178,46 @@
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
+			<File
+				RelativePath=".\FluidRender.h"
+				>
+			</File>
+			<File
+				RelativePath=".\HapticInput.h"
+				>
+			</File>
+			<File
+				RelativePath=".\HapticRender.h"
+				>
+			</File>
+			<File
+				RelativePath=".\IInput.h"
+				>
+			</File>
+			<File
+				RelativePath=".\InputManager.h"
+				>
+			</File>
+			<File
+				RelativePath=".\KeyboardInput.h"
+				>
+			</File>
+			<File
+				RelativePath=".\ModeFlag.h"
+				>
+			</File>
+			<File
+				RelativePath=".\MouseInput.h"
+				>
+			</File>
+			<File
+				RelativePath=".\RenderManager.h"
+				>
+			</File>
+			<File
+				RelativePath=".\WorldRender.h"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Resource Files"
