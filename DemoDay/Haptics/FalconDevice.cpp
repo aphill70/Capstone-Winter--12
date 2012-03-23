@@ -1,5 +1,5 @@
 #include "FalconDevice.h"
-#include "ViscositySenseMode.h"
+#include "UniformViscositySenseMode.h"
 
 /*
 private:
@@ -23,9 +23,6 @@ FalconDevice::~FalconDevice(void) {
 
 void FalconDevice::SetMode(IHapticMode* newMode) {
 	IHapticDevice::SetMode(newMode);
-	if (ViscositySenseMode* senseMode = dynamic_cast<ViscositySenseMode*>(newMode)) {
-		senseMode->SetDevice(this);
-	}
 }
 
 void FalconDevice::SetTerrain(ITerrain* newTerrain) {
