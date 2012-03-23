@@ -2,14 +2,13 @@
 
 #include "IHapticDevice.h"
 #include "IHapticMode.h"
+#include "chai3d.h"
 
 /*
  * Implements Init() with basic Chai setup code.
  */
 class GenericDevice : public IHapticDevice {
-	friend class ViscositySenseMode;
 protected:
-	cHapticDeviceHandler handler;
 	cGenericHapticDevice* chaiDevice;
 
 	void CenterHapticDevice(void);
@@ -18,4 +17,5 @@ public:
 
 	virtual double GetMaxForce(void);
 	virtual double GetHapticRadius(void);
+	cGenericHapticDevice* GetChaiDevice(void);
 };

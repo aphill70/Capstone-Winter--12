@@ -6,6 +6,8 @@
 #include "ITerrain.h"
 #include <vector>
 
+#define TEST_FLUID_MAX_SPEED 0.05
+
 class HapticsFluidTest : public IFluid {
 public:
 	enum e_TestMode {
@@ -22,6 +24,7 @@ public:
 	void GetVelocityAt(cVector3d& velocity, const cVector3d& location);
 	void GetAllPoints(std::vector<cVector3d>&) {}
 	void SetTerrain(ITerrain*) {}
+	double GetMaxParticleSpeed(void);
 private:
 	HapticTestRunner * testRunner;
 };
