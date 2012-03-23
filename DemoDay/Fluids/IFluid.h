@@ -5,7 +5,6 @@
 
 #include "ITerrain.h"
 
-
 class IFluid {
 protected:
 	ITerrain* terrain;
@@ -16,4 +15,6 @@ public:
 	virtual void GetAllPoints(std::vector<cVector3d>& destination) = 0;
 	// Finds the velocity of the fluid at the given point and copies it into 'velocity'
 	virtual void GetVelocityAt(cVector3d& velocity, const cVector3d& location) = 0;
+	// Returns the fastest possible speed of a particle
+	virtual double GetMaxParticleSpeed(void) = 0;
 };

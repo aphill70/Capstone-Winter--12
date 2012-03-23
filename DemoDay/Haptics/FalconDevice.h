@@ -6,6 +6,8 @@
 #include "ITerrain.h"
 #include "IFluid.h"
 
+#define FALCON_MIN_CURSOR_SPEED 0.01
+
 class FalconDevice : public GenericDevice {
 private:
 	cVector3d cursorPosition;

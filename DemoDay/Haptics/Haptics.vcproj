@@ -170,6 +170,10 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
+				RelativePath=".\DirectionalViscositySenseMode.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\FalconDevice.cpp"
 				>
 			</File>
@@ -178,7 +182,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ViscositySenseMode.cpp"
+				RelativePath=".\UniformViscositySenseMode.cpp"
 				>
 			</File>
 		</Filter>
@@ -187,6 +191,10 @@
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
+			<File
+				RelativePath=".\DirectionalViscositySenseMode.h"
+				>
+			</File>
 			<File
 				RelativePath=".\FalconDevice.h"
 				>
@@ -204,7 +212,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ViscositySenseMode.h"
+				RelativePath=".\UniformViscositySenseMode.h"
 				>
 			</File>
 		</Filter>
