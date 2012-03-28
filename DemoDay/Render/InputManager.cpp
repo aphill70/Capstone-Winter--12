@@ -24,7 +24,7 @@ void InputManager::MouseMotion(int x, int y)
 {
 	mouseInput.HandleMouseInput(x, y);
 	mouseInput.ModifyTransformations(transforms);
-	cout << "H:" << transforms.heading << "\tE:" << transforms.elevation << endl;
+	//cout << "H:" << transforms.heading << "\tE:" << transforms.elevation << endl;
 }
 
 cMatrix3d InputManager::GetCameraTransformations()
