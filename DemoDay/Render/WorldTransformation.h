@@ -1,6 +1,6 @@
 #pragma once
 
 typedef struct worldTransformation {
-	double rotateX, rotateY;
+	double elevation, heading;
 	double xPos, yPos, zPos;
 } WorldTransformation;

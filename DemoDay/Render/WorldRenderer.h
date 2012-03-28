@@ -17,14 +17,14 @@ private:
 	cShapeLine* axes[3];	//As is the plural of "axis"
 
 	void RenderAxes(int);
-	void InitCamera();
-	void InitLight();
+	void InitCamera(cMatrix3d);
+	void InitLight(void);
 
 public:
 	WorldRenderer(void);
 	~WorldRenderer(void);
 	
-	void InitWorld(cWorld*);
+	void InitWorld(cWorld*, cMatrix3d);
 	void SetCamera(WorldTransformation);
-
+	void RenderCamera(int, int);
 };

@@ -20,6 +20,9 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Haptics", "Haptics\Haptics.vcproj", "{7830F8C5-9DA6-4E4B-B2D3-E9B13CC50D0B}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Render_Test", "Render_Test\Render_Test.vcproj", "{7D83004E-9D22-45C0-8A46-590D2DE3B439}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5FB99FEA-BA59-44B9-AF7F-32DAD9387129} = {5FB99FEA-BA59-44B9-AF7F-32DAD9387129}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

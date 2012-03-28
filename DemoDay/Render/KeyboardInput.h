@@ -29,12 +29,13 @@ private:
 	void MoveUp(WorldTransformation& transform);
 	void MoveDown(WorldTransformation& transform);
 	
-	ModeFlag* flag;
-	
 public:
 	KeyboardInput(void);
 	
+	ModeFlag* flag;
+
 	void HandleKeyPress(unsigned char key);
 	void HandleKeyRelease(unsigned char key);
 	virtual void ModeChange();
+	virtual void SetFlag(ModeFlag*);
 };

@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;$(CHAI_ROOT)\src&quot;;..\Terrain;..\Fluids;..\Haptics"
+				AdditionalIncludeDirectories="&quot;$(CHAI_ROOT)\src&quot;;..\Terrain;..\Fluids;..\Haptics;..\lib"
 				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE;_MSVC"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -61,7 +61,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				AdditionalLibraryDirectories="&quot;$(CHAI_ROOT)/lib/mvsc9&quot;;&quot;$(CHAI_ROOT)/external/OpenGL/msvc&quot;"
+				AdditionalLibraryDirectories="&quot;$(CHAI_ROOT)/lib/mvsc9&quot;;&quot;$(CHAI_ROOT)/external/OpenGL/msvc&quot;;../lib"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -175,6 +175,14 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
+				RelativePath=".\FluidRenderer.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\InputManager.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\KeyboardInput.cpp"
 				>
 			</File>
@@ -184,6 +192,10 @@
 			</File>
 			<File
 				RelativePath=".\RenderManager.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\StaticRenderManager.cpp"
 				>
 			</File>
 			<File

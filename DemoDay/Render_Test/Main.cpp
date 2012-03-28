@@ -1,7 +1,8 @@
-#include "chai3d.h"
-
+#include "RenderManager.h"
 
 int main(void)
 {
-	cVector3d vect;
+	RenderManager::getInstance().Initialize();
+	RenderManager::getInstance().RunSimulation();
+	RenderManager::getInstance().EndSimulation();
 }

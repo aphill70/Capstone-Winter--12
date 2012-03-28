@@ -24,7 +24,10 @@ private:
 	}
 
 public:
-	ModeFlag(){}
+	ModeFlag()
+	{
+		CurrentMode = FREE;
+	}
 	
 	void AddListener(IInput* listener)
 	{
