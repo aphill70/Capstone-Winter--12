@@ -16,7 +16,6 @@ private:
 	static IHapticMode* singleton;
 
 	double maxViscosity;
-	//double standardViscosity;
 	double minViscosity;
 	
 	DirectionalViscositySenseMode(void);

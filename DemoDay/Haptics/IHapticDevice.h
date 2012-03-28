@@ -38,4 +38,9 @@ public:
 	virtual void SetMode(IHapticMode* newMode) {
 		mode = newMode;
 	}
+
+	// Some haptic device implementations use directions that aren't the same as the standard 3D
+	// axes. These functions allow specific implementations to convert 3D vectors to the standard axes.
+	virtual void ConvertToDeviceAxes(cVector3d& vector) { return; }
+	virtual void ConvertFromDeviceAxes(cVector3d& vector) { return; } 
 };

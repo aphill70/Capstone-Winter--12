@@ -2,50 +2,26 @@
 #include "FalconDevice.h"
 #include "DirectionalViscositySenseMode.h"
 
-//
-void printHapticLevel(double percent) {
-	printf("Rendered force amount: ");
-	if (percent > 0.05)
-		printf("X");
-	if (percent > 0.15)
-		printf("X");
-	if (percent > 0.25)
-		printf("X");
-	if (percent > 0.35)
-		printf("X");
-	if (percent > 0.45)
-		printf("X");
-	if (percent > 0.55)
-		printf("X");
-	if (percent > 0.65)
-		printf("X");
-	if (percent > 0.75)
-		printf("X");
-	if (percent > 0.85)
-		printf("X");
-	if (percent > 0.95)
-		printf("X");
-
-	printf("\n");
-}
-//
-
 IHapticMode* DirectionalViscositySenseMode::singleton = 0;
 
-DirectionalViscositySenseMode::DirectionalViscositySenseMode(void) : maxViscosity(1.0), minViscosity(0) {}	//standardViscosity(4.0), 
+DirectionalViscositySenseMode::DirectionalViscositySenseMode(void) : maxViscosity(1.0), minViscosity(0) {} 
 
 DirectionalViscositySenseMode::~DirectionalViscositySenseMode(void) {}
 
 void DirectionalViscositySenseMode::Tick(void) {
 	extern IHapticDevice* hapticDevice;
 	extern IFluid* fluid;
-	GenericDevice* genDevice = dynamic_cast<GenericDevice*>(hapticDevice);
-	cGenericHapticDevice* haptic = genDevice->GetChaiDevice();
+	cGenericHapticDevice* haptic = (dynamic_cast<GenericDevice*>(hapticDevice))->GetChaiDevice();
 
 	cVector3d cursorPosition;
 	hapticDevice->GetCursorPosition(cursorPosition);
+
 	cVector3d linearVelocity;
 	hapticDevice->GetCursorVelocity(linearVelocity);
+	//
+	printf("Speed: %4.4f\n", linearVelocity.length());
+	//
+
 	// Don't do anything if cursor is moving too slowly
 	if (linearVelocity.length() < FALCON_MIN_CURSOR_SPEED) {
 		// The device continuously renders the last set force; this will clear that
@@ -62,9 +38,12 @@ void DirectionalViscositySenseMode::Tick(void) {
 	cVector3d normFluidVelocity(fluidVelocity);
 	normFluidVelocity.normalize();
 
+	// If the direction of the cursor is perpendicular to or going with
+	//  the fluid flow, render no force
 	double dotProduct = normLinVelocity.dot(normFluidVelocity);
-	if (dotProduct < 0) {dotProduct = 0;}
-	//dotProduct = (dotProduct + 1) / 2.0;	// Make the range [0, 1] instead of [-1, 1]
+	if (dotProduct < 0) {
+		dotProduct = 0;
+	}
 
 	double fluidForcePercent = fluidVelocity.length() / fluid->GetMaxParticleSpeed();
 	if (fluidForcePercent > 1.0) { fluidForcePercent = 1.0; }
@@ -74,7 +53,7 @@ void DirectionalViscositySenseMode::Tick(void) {
 	double hapticForcePercent = -1 * fluidForcePercent * pushForcePercent * dotProduct;
 	normLinVelocity.mul(hapticForcePercent * hapticDevice->GetMaxForce());
 
-	FalconDevice::ConvertToDeviceAxes(normLinVelocity);
+	hapticDevice->ConvertToDeviceAxes(normLinVelocity);
 	haptic->setForce(normLinVelocity);
 }
 
