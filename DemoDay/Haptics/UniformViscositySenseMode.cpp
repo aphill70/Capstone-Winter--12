@@ -13,16 +13,13 @@ void UniformViscositySenseMode::Tick(void) {
 	GenericDevice* genDevice = dynamic_cast<GenericDevice*>(hapticDevice);
 	cGenericHapticDevice* haptic = genDevice->GetChaiDevice();
 
-	cVector3d currentPosition;
-	hapticDevice->GetCursorPosition(currentPosition);
-
 	cVector3d linearVelocity;
 	hapticDevice->GetCursorVelocity(linearVelocity);
 
 	double forcePercent = linearVelocity.length() / UNIF_VISC_MAX_SPEED;
 	linearVelocity.mul(-forcePercent * hapticDevice->GetMaxForce());
 
-	FalconDevice::ConvertToDeviceAxes(linearVelocity);
+	hapticDevice->ConvertToDeviceAxes(linearVelocity);
 	haptic->setForce(linearVelocity);
 }
 

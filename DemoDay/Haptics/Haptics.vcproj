@@ -185,6 +185,10 @@
 				RelativePath=".\UniformViscositySenseMode.cpp"
 				>
 			</File>
+			<File
+				RelativePath=".\VirtualHapticDevice.cpp"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
@@ -213,6 +217,10 @@
 			</File>
 			<File
 				RelativePath=".\UniformViscositySenseMode.h"
+				>
+			</File>
+			<File
+				RelativePath=".\VirtualHapticDevice.h"
 				>
 			</File>
 		</Filter>
