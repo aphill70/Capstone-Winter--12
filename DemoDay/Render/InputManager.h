@@ -36,6 +36,7 @@ public:
 
 	void InitTransforms(double, double, cVector3d);
 	void SetWindowDimensions(int, int);
+	void SetHapticCursor(cGenericObject* cursor);
 	void UpdateTransforms(void);
 
 	void MouseMotion(int, int);

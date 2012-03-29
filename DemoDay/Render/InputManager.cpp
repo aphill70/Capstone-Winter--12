@@ -3,6 +3,7 @@
 InputManager::InputManager()
 {
 	mouseInput.SetFlag(&mode);
+	hapticInput.SetFlag(&mode);
 }
 
 void InputManager::InitTransforms(double heading, double elevation, cVector3d pos)
@@ -19,12 +20,26 @@ void InputManager::UpdateTransforms()
 {
 	mouseInput.ModifyTransformations(transforms);
 	keyboardInput.ModifyTransformations(transforms);
-	//cout << transforms.heading << " " << transforms.elevation << endl;
+	
+	if(mode.GetMode() != EXPLORE)
+	{
+		BuildCamToWorld();
+	}
+	else
+	{
+		hapticInput.UpdateCursor(camToWorld);
+	}
+
 }
 
 void InputManager::SetWindowDimensions(int width, int height)
 {
 	mouseInput.SetWindowDimensions(width, height);
+}
+
+void InputManager::SetHapticCursor(cGenericObject* cursor)
+{
+	hapticInput.SetCursor(cursor);
 }
 
 void InputManager::MouseMotion(int x, int y)
@@ -50,10 +65,6 @@ void InputManager::KeyDown(unsigned char key, int x, int y)
 cMatrix3d InputManager::GetCameraTransformations()
 {
 	cMatrix3d cam;
-	if(mode.GetMode() != EXPLORE)
-	{
-		BuildCamToWorld();
-	}
 
 	//Col0 has Position
 	cam.setCol0(cVector3d(transforms.xPos, transforms.yPos, transforms.zPos));

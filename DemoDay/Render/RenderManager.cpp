@@ -24,8 +24,13 @@ void RenderManager::Initialize()
 								INIT_POS);
 	cMatrix3d cam = inputManager.GetCameraTransformations();
 	inputManager.SetWindowDimensions(WINDOW_SIZE_W, WINDOW_SIZE_H);
+	
 	worldRenderer.InitWorld(world, cam);
 	
+	hapticRenderer.InitCursor(world);
+	cGenericObject* cursor = hapticRenderer.GetCursor();
+	inputManager.SetHapticCursor(cursor);
+
 	fluidRenderer.InitFluids(world);
 
 	InitializeGlut();

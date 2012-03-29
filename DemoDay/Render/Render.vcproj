@@ -179,6 +179,14 @@
 				>
 			</File>
 			<File
+				RelativePath=".\HapticInput.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\HapticRenderer.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\InputManager.cpp"
 				>
 			</File>
