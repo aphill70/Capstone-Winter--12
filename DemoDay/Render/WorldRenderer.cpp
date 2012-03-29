@@ -39,16 +39,16 @@ void WorldRenderer::InitCamera(cMatrix3d cam)
 {
 	world->addChild(camera);
 
-	camera->set(	cam.getCol0(),    // camera position (eye)
-					cam.getCol1(),    // lookat position (target)
-					cam.getCol2());   // direction of the "up" vector
+	SetCamera(cam);
 
     // set the near and far clipping planes of the camera
     // anything in front/behind these clipping planes will not be rendered
-    //camera->setClippingPlanes(0.01, 10.0);
+    
+	//camera->setClippingPlanes(0.01, 10.0);
 
     // enable higher quality rendering for transparent objects
-    camera->enableMultipassTransparency(true);
+    
+	//camera->enableMultipassTransparency(true);
 }
 
 void WorldRenderer::InitLight()
@@ -57,6 +57,13 @@ void WorldRenderer::InitLight()
     light->setEnabled(true);                   // enable light source
     light->setPos(cVector3d( 2.0, 0.5, 1.0));  // position the light source
     light->setDir(cVector3d(-2.0, 0.5, 1.0));  // define the direction of the light beam
+}
+
+void WorldRenderer::SetCamera(cMatrix3d cam)
+{
+	camera->set(cam.getCol0(),    // camera position (eye)
+				cam.getCol1(),    // lookat position (target)
+				cam.getCol2());   // direction of the "up" vector
 }
 
 void WorldRenderer::RenderCamera(int width, int height)

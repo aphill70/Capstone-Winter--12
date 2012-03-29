@@ -4,7 +4,7 @@
 #include "ModeFlag.h"
 #include <gl/glut.h>
 
-#define PIXEL_TO_ANGLE_FACTOR 0.5
+#define PIXEL_TO_ANGLE_FACTOR 0.25
 
 class MouseInput : public IInput
 {

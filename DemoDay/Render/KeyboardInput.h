@@ -3,6 +3,9 @@
 #include "IInput.h"
 #include "ModeFlag.h"
 
+#define _USE_MATH_DEFINES
+#include <math.h>
+
 // Smallest unit of movement
 #define MOVEMENT_DELTA 0.3
 #define FORWARD_BUTTON 'w'
@@ -38,4 +41,6 @@ public:
 	void HandleKeyRelease(unsigned char key);
 	virtual void ModeChange();
 	virtual void SetFlag(ModeFlag*);
+
+	void ModifyTransformations(WorldTransformation& transform); 
 };

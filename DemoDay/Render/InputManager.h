@@ -36,7 +36,14 @@ public:
 
 	void InitTransforms(double, double, cVector3d);
 	void SetWindowDimensions(int, int);
+	void UpdateTransforms(void);
+
 	void MouseMotion(int, int);
+	void MouseClick(int, int, int, int);
+
+	void KeyDown(unsigned char, int, int);
+	void KeyUp(unsigned char, int, int);
+
 	cVector3d CamPointToWorld(cVector3d);
 	cMatrix3d GetCameraTransformations();
 };

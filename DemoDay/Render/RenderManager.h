@@ -45,12 +45,18 @@ private:
 	static void GLResizeWindow(int width, int height);
 	static void GLUpdateGraphics(void);
 	static void GLMouseMotion(int x, int y);
+	static void GLMouseFunc(int button, int state, int x, int y);
 	static void GLKeyDown(unsigned char key, int x, int y);
+	static void GLKeyUp(unsigned char key, int x, int y);
 
 	void InitializeGlut(void);
 	void UpdateGraphics(void);
 	void ResizeWindow(int, int);
 	void MouseMotion(int x, int y);
+	void MouseClick(int, int, int, int);
+	void KeyDown(unsigned char, int, int);
+	void KeyUp(unsigned char, int, int);
+
 
 	void InitModels(void);
 public:

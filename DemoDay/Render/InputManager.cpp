@@ -15,6 +15,13 @@ void InputManager::InitTransforms(double heading, double elevation, cVector3d po
 	transforms.elevation = elevation;
 }
 
+void InputManager::UpdateTransforms()
+{
+	mouseInput.ModifyTransformations(transforms);
+	keyboardInput.ModifyTransformations(transforms);
+	//cout << transforms.heading << " " << transforms.elevation << endl;
+}
+
 void InputManager::SetWindowDimensions(int width, int height)
 {
 	mouseInput.SetWindowDimensions(width, height);
@@ -23,8 +30,21 @@ void InputManager::SetWindowDimensions(int width, int height)
 void InputManager::MouseMotion(int x, int y)
 {
 	mouseInput.HandleMouseInput(x, y);
-	mouseInput.ModifyTransformations(transforms);
-	//cout << "H:" << transforms.heading << "\tE:" << transforms.elevation << endl;
+}
+
+void InputManager::MouseClick(int button, int state, int x, int y)
+{
+	mouseInput.HandleMouseClick(button, state, x, y);
+}
+
+void InputManager::KeyUp(unsigned char key, int x, int y)
+{
+	keyboardInput.HandleKeyRelease(key);
+}
+
+void InputManager::KeyDown(unsigned char key, int x, int y)
+{
+	keyboardInput.HandleKeyPress(key);
 }
 
 cMatrix3d InputManager::GetCameraTransformations()

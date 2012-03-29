@@ -31,6 +31,9 @@ void MouseInput::HandleMouseInput(int x, int y)
 
 void MouseInput::HandleMouseClick(int button, int state, int x, int y) 
 {
+	if(button != GLUT_LEFT_BUTTON || state != GLUT_DOWN)
+		return;
+
 	Mode curMode = modeFlag->GetMode();
 
 	if(curMode == FREE)
@@ -78,15 +81,14 @@ void MouseInput::RecenterMouse() {
 }
 
 void MouseInput::ShowCursor(bool toggle) {
-	//glutSetCursor((toggle ? GLUT_CURSOR_INHERIT : GLUT_CURSOR_NONE));
-	//glutSetCursor(GLUT_CURSOR_NONE);
+	glutSetCursor((toggle ? GLUT_CURSOR_INHERIT : GLUT_CURSOR_NONE));
 }
 
 void MouseInput::ModeChange()
 {
 	if(modeFlag->GetMode() == FREE)
 	{
-		//ShowCursor(false);
+		ShowCursor(false);
 		RecenterMouse();
 	} 
 	else if(modeFlag->GetMode() == EXPLORE)

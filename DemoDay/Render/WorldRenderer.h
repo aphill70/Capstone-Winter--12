@@ -25,6 +25,6 @@ public:
 	~WorldRenderer(void);
 	
 	void InitWorld(cWorld*, cMatrix3d);
-	void SetCamera(WorldTransformation);
+	void SetCamera(cMatrix3d);
 	void RenderCamera(int, int);
 };
