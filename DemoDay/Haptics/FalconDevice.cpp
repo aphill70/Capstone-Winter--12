@@ -6,9 +6,6 @@ private:
 	cFalconDevice device;
 	cVector3d cursorPosition;
 	cVector3d cursorVelocity;
-
-	ITerrain* terrain;
-	IFluid* fluid;
 */
 	
 FalconDevice::FalconDevice(void) {
@@ -21,36 +18,8 @@ FalconDevice::~FalconDevice(void) {
 	
 }
 
-void FalconDevice::SetMode(IHapticMode* newMode) {
-	IHapticDevice::SetMode(newMode);
-}
-
-void FalconDevice::SetTerrain(ITerrain* newTerrain) {
-	terrain = newTerrain;
-}
-
-void FalconDevice::SetFluid(IFluid* newFluid) {
-	fluid = newFluid;
-}
-
-void FalconDevice::GetCursorPosition(cVector3d& destination) {
-	chaiDevice->getPosition(destination);
-
-	// The Falcon's position components are mapped to the wrong fields; this
-	//  just remaps them to the correct fields
-	ConvertFromDeviceAxes(destination);
-	//printf("Lin. velocity: (%f, %f, %f)\n", destination.x, destination.y, destination.z);
-}
-
-void FalconDevice::GetCursorVelocity(cVector3d& destination) {
-	chaiDevice->getPosition(destination);		// This must be called to get a non-zero linear velocity
-	chaiDevice->getLinearVelocity(destination);
-
-	// The Falcon's position components are mapped to the wrong fields; this
-	//  just remaps them to the correct fields
-	ConvertFromDeviceAxes(destination);
-}
-
+// The Falcon's position components are mapped to the wrong fields; this
+//  just remaps them to the correct fields
 void FalconDevice::ConvertToDeviceAxes(cVector3d& vector) {
 	double x = vector.x;
 	double y = vector.y;
@@ -61,6 +30,8 @@ void FalconDevice::ConvertToDeviceAxes(cVector3d& vector) {
 	vector.z = y;
 }
 
+// The Falcon's position components are mapped to the wrong fields; this
+//  just remaps them to the correct fields
 void FalconDevice::ConvertFromDeviceAxes(cVector3d& vector) {
 	double x = vector.x;
 	double y = vector.y;

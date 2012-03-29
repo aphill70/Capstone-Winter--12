@@ -5,6 +5,7 @@
 #include "IHapticMode.h"
 #include "UniformViscositySenseMode.h"
 #include "DirectionalViscositySenseMode.h"
+#include "VirtualHapticDevice.h"
 
 cHapticDeviceHandler handler;
 
@@ -18,9 +19,10 @@ IHapticDevice* hapticDevice = 0;
 int uniformViscosity (void);
 int directionalViscosity(void);
 int nathanMain(void);
+int virtualTest(void);
 
 int	main(void) {
-	int fncToRun = 1;
+	int fncToRun = 3;
 
 	switch (fncToRun) {
 		case 0:
@@ -29,6 +31,8 @@ int	main(void) {
 			return directionalViscosity();
 		case 2:
 			return nathanMain();
+		case 3:
+			return virtualTest();
 	}
 }
 
@@ -74,12 +78,30 @@ int nathanMain(void) {
 	falcon.SetMode(mode);
 
 	cVector3d initial(0.5, 0.1, 0.2);
-	IFluid * driver = new HapticsFluidTest(HapticsFluidTest::CONSTANT_VELOCITY, initial);
-
-	falcon.SetFluid(driver);
+	fluid = new HapticsFluidTest(HapticsFluidTest::CONSTANT_VELOCITY, initial);
+	
 
 	while (true) {
 		mode->Tick();
 	}
+	return 0;
+}
+
+int virtualTest(void) {
+	VirtualHapticDevice virtDevice;
+	virtDevice.Init();
+	hapticDevice = &virtDevice;
+	
+	IHapticMode* mode = DirectionalViscositySenseMode::GetSingleton();
+	virtDevice.SetMode(mode);
+
+	cVector3d initial(1.0, 0, 0);
+	HapticsFluidTest oneDirecionFluid(HapticsFluidTest::CONSTANT_VELOCITY, initial);
+	fluid = &oneDirecionFluid;
+
+	while (true) {
+		mode->Tick();
+	}
+
 	return 0;
 }
