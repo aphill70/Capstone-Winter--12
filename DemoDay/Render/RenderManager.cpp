@@ -17,15 +17,17 @@ RenderManager::~RenderManager()
 
 void RenderManager::Initialize()
 {
-	fluidRenderer.InitFluids(world);
 	world = new cWorld();
 	world->setBackgroundColor( 0, 0, 0);
 
 	inputManager.InitTransforms(INIT_HEADING, INIT_ELEVATION,
 								INIT_POS);
 	cMatrix3d cam = inputManager.GetCameraTransformations();
-	
+	inputManager.SetWindowDimensions(WINDOW_SIZE_W, WINDOW_SIZE_H);
 	worldRenderer.InitWorld(world, cam);
+	
+	fluidRenderer.InitFluids(world);
+
 	InitializeGlut();
 
 }
@@ -52,9 +54,14 @@ void RenderManager::InitializeGlut()
 	glutDisplayFunc(RenderManager::GLUpdateGraphics);
 	glutPassiveMotionFunc(RenderManager::GLMouseMotion);
 	glutMotionFunc(RenderManager::GLMouseMotion);
+	glutMouseFunc(RenderManager::GLMouseFunc);
 	glutKeyboardFunc(RenderManager::GLKeyDown);
+	glutKeyboardUpFunc(RenderManager::GLKeyUp);
     glutReshapeFunc(RenderManager::GLResizeWindow);
     glutSetWindowTitle("CHAI 3D");
+
+	glutSetCursor(GLUT_CURSOR_NONE);
+	glutWarpPointer(WINDOW_SIZE_W / 2, WINDOW_SIZE_H / 2);
 }
 
 void RenderManager::InitModels(void) {
@@ -72,6 +79,10 @@ void RenderManager::ResizeWindow(int width, int height)
 void RenderManager::UpdateGraphics()
 {
 
+	inputManager.UpdateTransforms();
+	cMatrix3d cam = inputManager.GetCameraTransformations();
+	worldRenderer.SetCamera(cam);
+
 	//make sure to step other renderers and simulation
 	worldRenderer.RenderCamera(displayW, displayH);
 	
@@ -87,13 +98,28 @@ void RenderManager::UpdateGraphics()
 		simEnded = true;
 
 	fluidRenderer.UpdateFluid(world);
-
 }
 
 void RenderManager::MouseMotion(int x, int y)
 {
 	inputManager.MouseMotion(x, y);
 }
+
+void RenderManager::MouseClick(int button, int state, int x, int y)
+{
+	inputManager.MouseClick(button, state, x, y);
+}
+
+void RenderManager::KeyDown(unsigned char key, int x, int y)
+{
+	inputManager.KeyDown(key, x, y);
+}
+
+void RenderManager::KeyUp(unsigned char key, int x, int y)
+{
+	inputManager.KeyUp(key, x, y);
+}
+
 
 void RenderManager::RunSimulation()
 {
