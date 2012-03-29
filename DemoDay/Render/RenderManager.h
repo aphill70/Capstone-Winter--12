@@ -6,6 +6,8 @@
 #include "InputManager.h"
 #include "chai3d.h"
 #include <iostream>
+#include "IFluid.h"
+
 
 #define	WINDOW_SIZE_W	600
 #define	WINDOW_SIZE_H	600
@@ -23,12 +25,18 @@ private:
 
 	cWorld* world;
 
+	// rendering classes
 	WorldRenderer worldRenderer;
 	FluidRenderer fluidRenderer;
 	HapticRenderer hapticRenderer;
 
+	// input classes
 	InputManager inputManager;
-	
+
+	// model classes
+	IFluid * fluidModel;
+
+
 	int displayW, displayH;
 	bool simRunning, simEnded;
 
@@ -43,6 +51,8 @@ private:
 	void UpdateGraphics(void);
 	void ResizeWindow(int, int);
 	void MouseMotion(int x, int y);
+
+	void InitModels(void);
 public:
 	
 	~RenderManager(void);

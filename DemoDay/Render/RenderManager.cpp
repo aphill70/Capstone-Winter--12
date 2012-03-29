@@ -1,4 +1,5 @@
 #include "RenderManager.h"
+#include "TestOneDirectionFluid.h"
 
 RenderManager::RenderManager()
 {
@@ -16,6 +17,7 @@ RenderManager::~RenderManager()
 
 void RenderManager::Initialize()
 {
+	fluidRenderer.InitFluids(world);
 	world = new cWorld();
 	world->setBackgroundColor( 0, 0, 0);
 
@@ -24,9 +26,6 @@ void RenderManager::Initialize()
 	cMatrix3d cam = inputManager.GetCameraTransformations();
 	
 	worldRenderer.InitWorld(world, cam);
-	
-	fluidRenderer.InitFluids(world);
-
 	InitializeGlut();
 
 }
@@ -58,6 +57,10 @@ void RenderManager::InitializeGlut()
     glutSetWindowTitle("CHAI 3D");
 }
 
+void RenderManager::InitModels(void) {
+	fluidModel = new TestOneDirectionFluid();
+}
+
 void RenderManager::ResizeWindow(int width, int height)
 {
 	displayW = width;
@@ -82,6 +85,8 @@ void RenderManager::UpdateGraphics()
 		glutPostRedisplay();
 	else
 		simEnded = true;
+
+	fluidRenderer.UpdateFluid(world);
 
 }
 
