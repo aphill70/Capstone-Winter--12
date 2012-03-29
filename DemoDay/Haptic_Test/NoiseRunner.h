@@ -5,7 +5,7 @@
 #include "OscillRunner.h"
 
 #define NOISERUNNER_MAX_NOISE 3.0
-#devine NOISERUNNER_TIME_INTERVAL 300.0
+#define NOISERUNNER_INTERVAL 30000
 
 class NoiseHapticTestRunner : HapticTestRunner {
 public:
@@ -19,8 +19,7 @@ public:
 	NoiseHapticTestRunner(cVector3d& initialVelocity, e_NoiseType type);
 	virtual void ComputeVelocity(cVector3d& velocity, const cVector3d& location);
 private:
-	void GenerateNoise(e_NoiseType &type);
-	void Gen1dNoise(double &destination, const double origin, const double time_interval);
+	void GenerateNoise();
 	cVector3d vector;
-	cVector3d *noise;
+	double [ NOISERUNNER_INTERVAL ]noise;
 };
