@@ -165,6 +165,26 @@
 			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
+			<File
+				RelativePath=".\BasicFluidParticle.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\FrameData.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\GEOFileFluid.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\GEOParticle.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\SPHFluid.cpp"
+				>
+			</File>
 			<Filter
 				Name="Test"
 				>
@@ -180,7 +200,31 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
+				RelativePath=".\BasicFluidParticle.h"
+				>
+			</File>
+			<File
+				RelativePath=".\FrameData.h"
+				>
+			</File>
+			<File
+				RelativePath=".\GEOFileFluid.h"
+				>
+			</File>
+			<File
+				RelativePath=".\GEOParticle.h"
+				>
+			</File>
+			<File
 				RelativePath=".\IFluid.h"
+				>
+			</File>
+			<File
+				RelativePath=".\IFluidParticle.h"
+				>
+			</File>
+			<File
+				RelativePath=".\SPHFluid.h"
 				>
 			</File>
 			<Filter

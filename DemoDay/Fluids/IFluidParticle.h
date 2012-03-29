@@ -6,7 +6,6 @@
  * This class represents a particle in the fluid
  */
 class IFluidParticle {
-
 public:
 	// Copies this particle's position into the vector 'position'
 	virtual void GetPosition(cVector3d& position) = 0;

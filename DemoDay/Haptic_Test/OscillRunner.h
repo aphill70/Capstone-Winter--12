@@ -12,8 +12,7 @@ public:
 		XZ_PLANE
 	};
 	OscillatingHapticTestRunner(const cVector3d& initialVector, enum e_OscillationType type);
-	void ComputeVelocity(cVector3d& velocity, const cVector3d& location);
-
+	void RunnerLoop();
 private:
 	void SetOscillation();
 	void SetPolarity();

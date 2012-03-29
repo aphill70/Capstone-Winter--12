@@ -5,10 +5,8 @@ NoiseHapticTestRunner::NoiseHapticTestRunner(cVector3d& initialVelocity, e_Noise
 		
 }
 
-void NoiseHapticTestRunner::GenerateNoise(e_NoiseType &type) {
-	
-}
+void NoiseHapticTestRunner::GenerateNoise() {
+	for (int i = 0; i < NOISERUNNER_INTERVAL; i++)
+		noise[i] = 0;
 
-void NoiseHapticTestRunner::Gen1dNoise(double &destination, const double origin, const double time_interval) {
-	
 }
