@@ -188,10 +188,6 @@
 			<Filter
 				Name="Test"
 				>
-				<File
-					RelativePath=".\TestOneDirectionFluid.cpp"
-					>
-				</File>
 			</Filter>
 		</Filter>
 		<Filter
@@ -232,6 +228,10 @@
 				>
 				<File
 					RelativePath=".\TestOneDirectionFluid.h"
+					>
+				</File>
+				<File
+					RelativePath=".\TestOneDirectionFuildParticle.h"
 					>
 				</File>
 			</Filter>
