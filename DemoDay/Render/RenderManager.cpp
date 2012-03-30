@@ -102,7 +102,7 @@ void RenderManager::UpdateGraphics()
 	else
 		simEnded = true;
 
-	fluidRenderer.UpdateFluid(world);
+	//fluidRenderer.UpdateFluid(world);
 }
 
 void RenderManager::MouseMotion(int x, int y)

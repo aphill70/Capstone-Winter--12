@@ -3,6 +3,7 @@
 InputManager::InputManager()
 {
 	mouseInput.SetFlag(&mode);
+	keyboardInput.SetFlag(&mode);
 	hapticInput.SetFlag(&mode);
 }
 

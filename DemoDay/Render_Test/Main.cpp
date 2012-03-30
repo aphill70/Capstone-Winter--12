@@ -1,6 +1,7 @@
 #include "RenderManager.h"
 #include "chai3d.h"
 #include "VirtualHapticDevice.h"
+#include "FalconDevice.h"
 
 cHapticDeviceHandler handler;
 IHapticDevice* hapticDevice;
@@ -8,7 +9,8 @@ IHapticDevice* hapticDevice;
 int main(void)
 {
 
-	VirtualHapticDevice device;
+	//VirtualHapticDevice device;
+	FalconDevice device;
 	device.Init();
 	hapticDevice = &device;
 

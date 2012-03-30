@@ -48,7 +48,6 @@ void FluidRenderer::RenderLine(glm::vec4* pt1, glm::vec4* pt2) {
 
 void FluidRenderer::UpdateFluid(cWorld * w) {
 	world = w;
-	std::cout << " updating fluids" << std::endl;
 	if(world != NULL)
 		RenderSphere(new glm::vec4(0,0,3,0));
 	else

@@ -71,6 +71,9 @@ void KeyboardInput::MoveDown(WorldTransformation& transform) {
 }
 
 void KeyboardInput::HandleKeyPress(unsigned char key) {
+	if(modeFlag->GetMode() != FREE)
+		return;
+
 	switch (key) {
 	case FORWARD_BUTTON:
 		forwardPressed = true;
@@ -100,6 +103,7 @@ void KeyboardInput::HandleKeyPress(unsigned char key) {
 }
 
 void KeyboardInput::HandleKeyRelease(unsigned char key) {
+	
 	switch (key) {
 	case FORWARD_BUTTON:
 		forwardPressed = false;

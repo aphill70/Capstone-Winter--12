@@ -46,5 +46,5 @@ void VirtualHapticDevice::ConvertFromDeviceAxes(cVector3d& vector) {
 
 	vector.x = y;
 	vector.y = z;
-	vector.z = x;
+	vector.z = 0 - x;
 }
