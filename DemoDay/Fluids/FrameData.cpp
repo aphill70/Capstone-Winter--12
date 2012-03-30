@@ -1,39 +1,47 @@
 #include "FrameData.h"
 
-FrameData::FrameData(int totalPartCount, int livePartCount, GEOParticle** masterList) : _livePartCount(livePartCount) {
-	particleList = new GEOParticle*[totalPartCount];
-	memcpy(particleList, masterList, totalPartCount);
-	
+int comparePartSortData(const void* first, const void* second) {
+	GEOParticleSortData firstPart = *(GEOParticleSortData*) first;
+	GEOParticleSortData secondPart = *(GEOParticleSortData*) second;
+	return firstPart.sortValue < secondPart.sortValue;
+}
+
+
+
+FrameData::FrameData(int totalPartCount, int livePartCount, GEOParticle** masterList) :
+	_totalPartCount(totalPartCount), _livePartCount(livePartCount), 
+	particleList(masterList, masterList + sizeof(masterList) / sizeof(GEOParticle*))
+{
 	// Create sorted lists
-	int* livePartIds = new int[livePartCount];
+	xSortedPartIDs = new GEOParticleSortData[livePartCount];
+	ySortedPartIDs = new GEOParticleSortData[livePartCount];
+	zSortedPartIDs = new GEOParticleSortData[livePartCount];
+
+	int currentIndex = 0;
+	
+	for (int i = 0; i < totalPartCount; i++) {
+		if (particleList[i]) {
+			xSortedPartIDs[currentIndex].id = i;
+			xSortedPartIDs[currentIndex].sortValue = particleList[i]->GetPositionX();
+			ySortedPartIDs[currentIndex].id = i;
+			ySortedPartIDs[currentIndex].sortValue = particleList[i]->GetPositionY();
+			zSortedPartIDs[currentIndex].id = i;
+			zSortedPartIDs[currentIndex].sortValue = particleList[i]->GetPositionZ();
+			
+			currentIndex++;
+		}
+	}
+
+	qsort(xSortedPartIDs, livePartCount, sizeof(int), comparePartSortData);
+	qsort(ySortedPartIDs, livePartCount, sizeof(int), comparePartSortData);
+	qsort(zSortedPartIDs, livePartCount, sizeof(int), comparePartSortData);
 }
 
-FrameData::~FrameData(void) {
-	delete[] particleList;
+FrameData::FrameData(void) {
+
 }
 
-int FrameData::compareLiveParticles(const void* first, const void* second) {
-	return first < second;
-}
-
-int FrameData::compareXPosition(const void* first, const void* second) {
-	GEOParticle* firstPart = (GEOParticle*)first;
-	GEOParticle* secondPart = (GEOParticle*)second;
-	return firstPart->GetPositionX() < secondPart->GetPositionX();
-}
-
-int FrameData::compareYPosition(const void* first, const void* second) {
-	GEOParticle* firstPart = (GEOParticle*)first;
-	GEOParticle* secondPart = (GEOParticle*)second;
-	return firstPart->GetPositionY() < secondPart->GetPositionY();
-}
-
-int FrameData::compareZPosition(const void* first, const void* second) {
-	GEOParticle* firstPart = (GEOParticle*)first;
-	GEOParticle* secondPart = (GEOParticle*)second;
-	return firstPart->GetPositionZ() < secondPart->GetPositionZ();
-}
-
+FrameData::~FrameData(void) {}
 
 
 //vector<int> FrameData::GetIDsInRange(const double neighborhoodSize, const cVector3d& center) {

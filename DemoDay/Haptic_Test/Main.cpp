@@ -23,7 +23,7 @@ int nathanMain(void);
 int virtualTest(void);
 
 int	main(void) {
-	int fncToRun = 3;
+	int fncToRun = 4;
 
 	switch (fncToRun) {
 		case 0:
@@ -34,7 +34,7 @@ int	main(void) {
 			return oscillating();
 		case 3:
 			return nathanMain();
-		case 3:
+		case 4:
 			return virtualTest();
 	}
 }

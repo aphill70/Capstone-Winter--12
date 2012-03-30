@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual C++ Express 2008
+# Visual Studio 2008
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DemoDay", "DemoDay\DemoDay.vcproj", "{83B6CE18-F49C-4A7C-82A9-66F400D0E909}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Fluids", "Fluids\Fluids.vcproj", "{2B8E1002-BC22-4E41-9DBE-296A99C64047}"
@@ -23,6 +23,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Render_Test", "Render_Test\
 	ProjectSection(ProjectDependencies) = postProject
 		{5FB99FEA-BA59-44B9-AF7F-32DAD9387129} = {5FB99FEA-BA59-44B9-AF7F-32DAD9387129}
 	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GEOFluid_Test", "GEOFluid_Test\GEOFluid_Test.vcproj", "{EC5238FA-3EE0-418C-AB9A-4A3CE7AA50CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -104,6 +106,16 @@ Global
 		{7D83004E-9D22-45C0-8A46-590D2DE3B439}.Release|Mixed Platforms.Build.0 = Release|Win32
 		{7D83004E-9D22-45C0-8A46-590D2DE3B439}.Release|Win32.ActiveCfg = Release|Win32
 		{7D83004E-9D22-45C0-8A46-590D2DE3B439}.Release|Win32.Build.0 = Release|Win32
+		{EC5238FA-3EE0-418C-AB9A-4A3CE7AA50CC}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{EC5238FA-3EE0-418C-AB9A-4A3CE7AA50CC}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{EC5238FA-3EE0-418C-AB9A-4A3CE7AA50CC}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{EC5238FA-3EE0-418C-AB9A-4A3CE7AA50CC}.Debug|Win32.ActiveCfg = Debug|Win32
+		{EC5238FA-3EE0-418C-AB9A-4A3CE7AA50CC}.Debug|Win32.Build.0 = Debug|Win32
+		{EC5238FA-3EE0-418C-AB9A-4A3CE7AA50CC}.Release|Any CPU.ActiveCfg = Release|Win32
+		{EC5238FA-3EE0-418C-AB9A-4A3CE7AA50CC}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{EC5238FA-3EE0-418C-AB9A-4A3CE7AA50CC}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{EC5238FA-3EE0-418C-AB9A-4A3CE7AA50CC}.Release|Win32.ActiveCfg = Release|Win32
+		{EC5238FA-3EE0-418C-AB9A-4A3CE7AA50CC}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

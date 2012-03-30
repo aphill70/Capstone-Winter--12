@@ -10,6 +10,7 @@ protected:
 	cVector3d _position, _velocity;
 public:
 	GEOParticle(int id, cVector3d& position, cVector3d& velocity);
+	GEOParticle(const GEOParticle& other);
 	virtual ~GEOParticle(void);
 
 	int GetID(void);

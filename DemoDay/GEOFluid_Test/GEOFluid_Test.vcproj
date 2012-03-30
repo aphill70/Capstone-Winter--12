@@ -2,11 +2,10 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9.00"
-	Name="Haptic_Test"
-	ProjectGUID="{64DEFCA9-1BFB-4875-974E-E4C81BCD303B}"
-	RootNamespace="Haptic_Test"
+	Name="GEOFluid_Test"
+	ProjectGUID="{EC5238FA-3EE0-418C-AB9A-4A3CE7AA50CC}"
+	RootNamespace="GEOFluid_Test"
 	Keyword="Win32Proj"
-	AssemblyReferenceSearchPaths="&quot;.\Debug&quot;"
 	TargetFrameworkVersion="196613"
 	>
 	<Platforms>
@@ -42,8 +41,8 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;$(CHAI_ROOT)\external\hdFalcon\include\&quot;;&quot;$(CHAI_ROOT)\src&quot;;..\Haptics;..\Terrain;..\Fluids"
-				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE;_MSVC"
+				AdditionalIncludeDirectories="..\Fluids;&quot;$(CHAI_ROOT)\external\hdFalcon\include\&quot;;&quot;$(CHAI_ROOT)\src&quot;"
+				PreprocessorDefinitions="WIN32;_DEBUG;_MSVC"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -168,16 +167,8 @@
 	</Configurations>
 	<References>
 		<ProjectReference
-			ReferencedProjectIdentifier="{7830F8C5-9DA6-4E4B-B2D3-E9B13CC50D0B}"
-			RelativePathToProject=".\Haptics\Haptics.vcproj"
-		/>
-		<ProjectReference
 			ReferencedProjectIdentifier="{2B8E1002-BC22-4E41-9DBE-296A99C64047}"
 			RelativePathToProject=".\Fluids\Fluids.vcproj"
-		/>
-		<ProjectReference
-			ReferencedProjectIdentifier="{3AF663BD-BA92-415C-96A3-2AE40969F19F}"
-			RelativePathToProject=".\Terrain\Terrain.vcproj"
 		/>
 	</References>
 	<Files>
@@ -187,19 +178,7 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\ConstRunner.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\HapticsFluidTest.cpp"
-				>
-			</File>
-			<File
 				RelativePath=".\Main.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\OscillRunner.cpp"
 				>
 			</File>
 		</Filter>
@@ -208,22 +187,6 @@
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
-			<File
-				RelativePath=".\ConstRunner.h"
-				>
-			</File>
-			<File
-				RelativePath=".\HapticsFluidTest.h"
-				>
-			</File>
-			<File
-				RelativePath=".\HapticTestRunner.h"
-				>
-			</File>
-			<File
-				RelativePath=".\OscillRunner.h"
-				>
-			</File>
 		</Filter>
 		<Filter
 			Name="Resource Files"

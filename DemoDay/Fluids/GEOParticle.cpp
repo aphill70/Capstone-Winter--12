@@ -5,6 +5,10 @@ GEOParticle::GEOParticle(int id, cVector3d& position, cVector3d& velocity) :
 {
 }
 
+	GEOParticle::GEOParticle(const GEOParticle& other) : _id(other._id), _position(other._position), _velocity(other._velocity)
+{
+}
+
 GEOParticle::~GEOParticle(void) {
 }
 

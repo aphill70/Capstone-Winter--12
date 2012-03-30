@@ -86,3 +86,6 @@ void OscillatingHapticTestRunner::SetPolarity()
 	else if (oscAmount <= 1.0)
 		polarity = true;		
 }
+
+void OscillatingHapticTestRunner::RunnerLoop() {
+}

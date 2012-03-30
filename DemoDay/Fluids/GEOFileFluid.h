@@ -5,12 +5,13 @@
 
 #include "chai3d.h"
 
+#include "FrameData.h"
 #include "SPHFluid.h"
 #include "IFluidParticle.h"
 
 class GEOFileFluid : public SPHFluid {
 protected:
-	//FrameData[] frames;
+	vector<FrameData> frames;
 	int frameCount;
 	int currentFrame;
 

@@ -4,28 +4,34 @@
 
 #include "GEOParticle.h"
 
+struct GEOParticleSortData {
+	int id;
+	double sortValue;
+};
+
+// Compares position coordinates
+int comparePartSortData(const void* first, const void* second);
+
 class FrameData {
 private:
+	// The total number of particles in the simulation
+	int _totalPartCount;
 	// The number of particles that are active.
 	int _livePartCount;
 	// A master list of all of the particles that appear in this frame.
 	// The array index is the same as the particle ID.
-	GEOParticle** particleList;
+	vector<GEOParticle*> particleList;
 
 	// These arrays hold the IDs of the particles, sorted according to position.
-	int* xSortedPartIDs;
-	int* ySortedPartIDs;
-	int* zSortedPartIDs;
+	GEOParticleSortData* xSortedPartIDs;
+	GEOParticleSortData* ySortedPartIDs;
+	GEOParticleSortData* zSortedPartIDs;
 
-	//---- These comparator functions are used to sort the particle lists ----
-	// Puts live particles in front of dead ones
-	int compareLiveParticles(const void* first, const void* second);
-	// Compares position coordinates
-	int compareXPosition(const void* first, const void* second);
-	int compareYPosition(const void* first, const void* second);
-	int compareZPosition(const void* first, const void* second);
 public:
+
 	FrameData(int totalPartCount, int livePartCount, GEOParticle** masterList);
+	// THIS SHOULD ONLY BE USED TO ALLOCATE ARRAYS/VECTORS
+	FrameData(void);
 	virtual ~FrameData(void);
 
 	// Returns a list of particle IDs for particles that are in the specified range
@@ -33,3 +39,4 @@ public:
 	// Returns the particle with the given ID
 	GEOParticle* GetParticleByID(int partId);
 };
+
