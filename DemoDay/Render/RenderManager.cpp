@@ -56,7 +56,7 @@ void RenderManager::InitializeGlut()
     glutInitWindowSize(WINDOW_SIZE_W, WINDOW_SIZE_H);
     glutInitDisplayMode(GLUT_RGB | GLUT_DEPTH | GLUT_DOUBLE);
     glutCreateWindow(argv[0]);
-	glutDisplayFunc(RenderManager::GLUpdateGraphics);
+	glutDisplayFunc(RenderManager::GLUpdateGraphics);	
 	glutPassiveMotionFunc(RenderManager::GLMouseMotion);
 	glutMotionFunc(RenderManager::GLMouseMotion);
 	glutMouseFunc(RenderManager::GLMouseFunc);
