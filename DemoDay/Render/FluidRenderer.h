@@ -2,6 +2,9 @@
 
 #include "chai3d.h"
 #include "glm/glm.hpp"
+#include <vector>
+
+
 
 using namespace glm;
 
@@ -20,6 +23,8 @@ private:
 	void RenderSphere(glm::vec4*);
 	void RenderSphere(glm::vec4*, glm::vec4* velocity);
 	void RenderLine(glm::vec4*, glm::vec4*);
+
+	vector<cShapeSphere*> particles;
 
 	// test model
 	vec4 * velocity;

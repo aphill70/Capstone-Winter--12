@@ -29,5 +29,9 @@ public:
 	// Advances the fluid simulation one frame
 	void AdvanceFrame(void) {
 	}
+
+	int GetMaxSimulatedParticles() {
+		return 0;
+	}
 	
 };

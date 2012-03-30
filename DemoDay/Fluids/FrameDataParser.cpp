@@ -10,9 +10,8 @@ void ParseFrame(const std::string& filename) {
 	std::string frameText;
 	std::string currentLine;
 
-	if (!fileReader.is_open()) {
-		int a  = 0;
-	}
+	//if (!fileReader.is_open()) {
+	//}
 
 	while(fileReader.good()) {
 		getline(fileReader, currentLine);
