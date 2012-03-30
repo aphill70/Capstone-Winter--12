@@ -9,5 +9,5 @@
 //FrameData ParseFrame(const string& filename);
 void ParseFrame(const std::string& filename);
 
-// ParseHeader
-// ParseParticle
+//GEOParticle* ParseParticle(const string& particleStr);
+void ParseParticle(const std::string& particleStr);
