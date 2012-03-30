@@ -5,12 +5,12 @@
 #include "IInput.h"
 #include "ModeFlag.h"
 #include <iostream>
-//#include "IHapticDevice.h"
+#include "IHapticDevice.h"
 
 using namespace glm;
 using namespace std;
 
-//extern IHapticDevice* hapticDevice;
+extern IHapticDevice* hapticDevice;
 
 class HapticInput : public IInput
 {

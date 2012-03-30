@@ -16,9 +16,10 @@ void HapticInput::UpdateCursor(dmat4x4 CamToWorld)
 		return;
 
 	cVector3d HapticPos;
-	//hapticDevice->GetCursorPosition(HapticPos);
+	hapticDevice->GetCursorPosition(HapticPos);
 
 	cout << HapticPos.x << " " << HapticPos.y << " " << HapticPos.z << endl;
+	cursor->setPos(HapticPos);
 }
 
 void HapticInput::SetFlag(ModeFlag* flag)

@@ -18,4 +18,8 @@ public:
 	//  getLinearVelocity(cVector3d), so this is a software implementation of
 	//  linear velocity
 	virtual void GetCursorVelocity(cVector3d& velocity);
+
+	// Overridden from IHapticDevice
+	virtual void ConvertToDeviceAxes(cVector3d& vector);
+	virtual void ConvertFromDeviceAxes(cVector3d& vector);
 };

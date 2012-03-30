@@ -1,16 +1,16 @@
 #include "RenderManager.h"
 #include "chai3d.h"
-//#include "FalconDevice.h"
+#include "VirtualHapticDevice.h"
 
-//cHapticDeviceHandler handler;
-//IHapticDevice* hapticDevice;
+cHapticDeviceHandler handler;
+IHapticDevice* hapticDevice;
 
 int main(void)
 {
 
-	//FalconDevice falcon;
-	//falcon.Init();
-	//hapticDevice = &falcon;
+	VirtualHapticDevice device;
+	device.Init();
+	hapticDevice = &device;
 
 	RenderManager::getInstance().Initialize();
 	RenderManager::getInstance().RunSimulation();

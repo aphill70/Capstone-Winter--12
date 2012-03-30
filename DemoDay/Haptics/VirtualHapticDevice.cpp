@@ -24,3 +24,27 @@ void VirtualHapticDevice::GetCursorVelocity(cVector3d& velocity) {
 	velocity.mul(1.0 / ellapsedTime );
 	lastPosition.copyfrom(currentPos);
 }
+
+// The Falcon's position components are mapped to the wrong fields; this
+//  just remaps them to the correct fields
+void VirtualHapticDevice::ConvertToDeviceAxes(cVector3d& vector) {
+	double x = vector.x;
+	double y = vector.y;
+	double z = vector.z;
+
+	vector.x = z;
+	vector.y = x;
+	vector.z = y;
+}
+
+// The Falcon's position components are mapped to the wrong fields; this
+//  just remaps them to the correct fields
+void VirtualHapticDevice::ConvertFromDeviceAxes(cVector3d& vector) {
+	double x = vector.x;
+	double y = vector.y;
+	double z = vector.z;
+
+	vector.x = y;
+	vector.y = z;
+	vector.z = x;
+}
