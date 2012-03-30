@@ -16,7 +16,9 @@ void FluidRenderer::InitFluids(cWorld* w)
 {
 	world = w;
 	
-	
+
+
+
 	//RenderSphere(new glm::vec4(0,0,3,0));
 	//RenderSphere(new glm::vec4(0,0,4,0), new glm::vec4(0,1,0,0));
 	ballLoc = glmAdd(ballLoc, velocity);

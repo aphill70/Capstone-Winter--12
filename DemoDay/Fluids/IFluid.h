@@ -6,6 +6,8 @@
 
 #include "IFluidParticle.h"
 
+#define MAX_NUMBER_OF_PARTICLES 1000
+
 class IFluid {
 
 public:
@@ -21,4 +23,6 @@ public:
 	virtual double GetMaxParticleSpeed(void) = 0;
 	// Advances the fluid simulation one frame
 	virtual void AdvanceFrame(void) = 0;
+	// Max number of particles beign simulated at any given time
+	virtual int GetMaxSimulatedParticles() = 0;
 };
