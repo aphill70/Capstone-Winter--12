@@ -105,6 +105,11 @@ void RenderManager::UpdateGraphics()
 	//fluidRenderer.UpdateFluid(world);
 }
 
+void RenderManager::GetHapticCursorPosition(cVector3d& c)
+{
+	inputManager.GetHapticCursorPosition(c);
+}
+
 void RenderManager::MouseMotion(int x, int y)
 {
 	inputManager.MouseMotion(x, y);

@@ -32,6 +32,8 @@ private:
 	void MoveUp(WorldTransformation& transform);
 	void MoveDown(WorldTransformation& transform);
 	
+	void DepressAll();
+
 public:
 	KeyboardInput(void);
 	

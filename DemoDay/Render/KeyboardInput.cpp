@@ -148,7 +148,19 @@ void KeyboardInput::ModifyTransformations(WorldTransformation& transform) {
 	if (downPressed) { MoveDown(transform); }
 }
 
+void KeyboardInput::DepressAll()
+{
+	forwardPressed = false;
+	backPressed = false;
+	leftPressed = false;
+	rightPressed = false;
+	upPressed = false;
+	downPressed = false;
+	resetPressed = false;
+}
+
 void KeyboardInput::ModeChange()
 {
-
+	if(modeFlag->GetMode() == EXPLORE)
+		DepressAll();
 }

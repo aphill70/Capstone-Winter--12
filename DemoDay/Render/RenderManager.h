@@ -57,8 +57,8 @@ private:
 	void KeyDown(unsigned char, int, int);
 	void KeyUp(unsigned char, int, int);
 
-
 	void InitModels(void);
+
 public:
 	
 	~RenderManager(void);
@@ -69,6 +69,8 @@ public:
 
 		return instance;
 	}
+
+	void GetHapticCursorPosition(cVector3d&);
 
 	RenderManager(RenderManager const&);
 	void operator=(RenderManager const&);

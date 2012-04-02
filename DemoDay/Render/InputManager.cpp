@@ -43,6 +43,11 @@ void InputManager::SetHapticCursor(cGenericObject* cursor)
 	hapticInput.SetCursor(cursor);
 }
 
+void InputManager::`GetHapticCursorPosition(cVector3d& c)
+{
+	hapticInput.GetCursorPosition(c);
+}
+
 void InputManager::MouseMotion(int x, int y)
 {
 	mouseInput.HandleMouseInput(x, y);

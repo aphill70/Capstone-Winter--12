@@ -7,6 +7,9 @@
 #include <iostream>
 #include "IHapticDevice.h"
 
+#define BOX_RADIUS		0.75
+#define MIN_DIST		3
+
 using namespace glm;
 using namespace std;
 
@@ -21,8 +24,9 @@ public:
 	HapticInput();
 
 	void SetCursor(cGenericObject* c);
+	void GetCursorPosition(cVector3d&);
 	void UpdateCursor(dmat4x4);
-
+	
 	virtual void SetFlag(ModeFlag*);
 	virtual void ModeChange();
 
