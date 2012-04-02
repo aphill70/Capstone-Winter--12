@@ -24,11 +24,8 @@ private:
 	void RenderSphere(glm::vec4*, glm::vec4* velocity);
 	void RenderLine(glm::vec4*, glm::vec4*);
 
-	vector<cShapeSphere*> particles;
+	vec4 * glmAdd(vec4* sphere, vec4* velocity);
 
-	// test model
-	vec4 * velocity;
-	vec4 * ballLoc;
-	vec4 * glmAdd(vec4*, vec4*);
+	vector<cShapeSphere*> particles;
 
 };

@@ -73,7 +73,7 @@ public:
 	RenderManager(RenderManager const&);
 	void operator=(RenderManager const&);
 
-	void Initialize();
+	void Initialize(IFluid * fluid);
 	void RunSimulation();
 	void EndSimulation();
 };

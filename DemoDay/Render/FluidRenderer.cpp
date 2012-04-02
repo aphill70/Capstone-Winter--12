@@ -4,26 +4,12 @@
 
 FluidRenderer::FluidRenderer()
 {
-	diameter = .1;
 
-	//test model;
-	velocity = new vec4(0,.01,0,0);
-	ballLoc = new glm::vec4(0,0,3,0);
-	std::cout << "consts fluids" << std::endl;
 }
 
 void FluidRenderer::InitFluids(cWorld* w)
 {
 	world = w;
-	
-
-
-
-	//RenderSphere(new glm::vec4(0,0,3,0));
-	//RenderSphere(new glm::vec4(0,0,4,0), new glm::vec4(0,1,0,0));
-	ballLoc = glmAdd(ballLoc, velocity);
-
-	std::cout << "init fluids" << std::endl;
 }
 
 void FluidRenderer::RenderSphere(glm::vec4 * sphere) {
@@ -35,8 +21,6 @@ void FluidRenderer::RenderSphere(glm::vec4 * sphere) {
 void FluidRenderer::RenderSphere(glm::vec4* sphere, glm::vec4* velocity) {
 	RenderSphere(sphere);
 	RenderLine(sphere, new glm::vec4(sphere->x + velocity->x, sphere->y + velocity->y, sphere->z + velocity->z, 0));
-
-	
 }
 
 void FluidRenderer::RenderLine(glm::vec4* pt1, glm::vec4* pt2) {
@@ -54,9 +38,6 @@ void FluidRenderer::UpdateFluid(cWorld * w) {
 		std::cout << " world null" << std::endl;
 
 
-	
-	ballLoc = glmAdd(ballLoc, velocity);
-	RenderSphere(ballLoc, velocity);
 }
 
 vec4 * FluidRenderer::glmAdd(vec4* sphere, vec4* velocity) {

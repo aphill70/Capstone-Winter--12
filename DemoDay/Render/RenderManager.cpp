@@ -15,7 +15,7 @@ RenderManager::~RenderManager()
 	//delete world;
 }
 
-void RenderManager::Initialize()
+void RenderManager::Initialize(IFluid * fluid)
 {
 	world = new cWorld();
 	world->setBackgroundColor( 0, 0, 0);
