@@ -1,15 +1,14 @@
-#include <iostream>
-#include <fstream>
 #include <assert.h>
+#include <fstream>
+#include <iostream>
+#include <map>
 #include <string>
 
 #include "FrameDataParser.h"
 
 //FrameData ParseFrame(const string& filename) {
-void ParseFrame(const std::string& filename) {
+FrameData* FrameDataParse::ParseFrame(const std::string& filename) {
 	std::ifstream fileReader(filename.c_str());
-	const int NUM_STR_BUF_SIZE = 16;
-	char numberStrBuffer[NUM_STR_BUF_SIZE];
 
 	std::string frameText;
 	std::string currentLine;
@@ -21,9 +20,7 @@ void ParseFrame(const std::string& filename) {
 	assert(currentLine.find("NPoints") == 0);
 	size_t index1 = currentLine.find(" ", strlen("NPoints"));
 	size_t index2 = currentLine.find(" ", index1 + 1);
-	memset(numberStrBuffer, 0, NUM_STR_BUF_SIZE);
-	currentLine.copy(numberStrBuffer, index2 - index1 - 1, index1 + 1);
-	int frameParticleCount = atoi(numberStrBuffer);
+	int frameParticleCount = ParseInt(currentLine, index1, index2);
 
 	// Group data; not needed
 	std::getline(fileReader, currentLine);
@@ -34,9 +31,7 @@ void ParseFrame(const std::string& filename) {
 	assert(currentLine.find("NPointAttrib") == 0);
 	index1 = currentLine.find(" ", strlen("NPointAttrib"));
 	index2 = currentLine.find(" ", index1 + 1);	
-	memset(numberStrBuffer, 0, NUM_STR_BUF_SIZE);
-	currentLine.copy(numberStrBuffer, index2 - index1 - 1, index1 + 1);
-	int attributeCount = atoi(numberStrBuffer);
+	int attributeCount = ParseInt(currentLine, index1 + 1, index2);
 
 	// Attributes; not needed
 	std::getline(fileReader, currentLine);
@@ -46,23 +41,104 @@ void ParseFrame(const std::string& filename) {
 	}
 
 	// Parse particles
+	map<int, GEOParticle*> particles;
 	std::getline(fileReader, currentLine);
-	while(currentLine.compare("PrimitiveAttrib") != 0) {
-		ParseParticle(currentLine);
+	GEOParticle* newParticle;
+	for (int i = 0; i < frameParticleCount; i++) {//while(currentLine.compare("PrimitiveAttrib") != 0) {
+		newParticle = ParseParticle(currentLine);
+		particles[newParticle->GetID()] = newParticle;
 
 		std::getline(fileReader, currentLine);
 	}
+	int highestIDFound = newParticle->GetID();
 
 	// Ignore the rest of the file's contents
 	fileReader.close();
+
+	FrameData* allData = new FrameData(highestIDFound, frameParticleCount, particles);
+	return allData;
 }
 
 // TODO: this can be made more generic if you care to parse the PointAttrib section
-void ParseParticle(const std::string& particleStr) {
-	// posx
-	// posy
-	// posz
-	// posw
-	// as listed in header
-	//-3.4566803 3.05862832 -3.00498819 1 (-0.2045331 0.0930733681 3.32522583	-2.55458832 0.0991082191 -2.59312153	0 3	0	1	0)
+GEOParticle* FrameDataParse::ParseParticle(const std::string& particleStr) {
+	int startIndex, spaceIndex;
+
+	// Parse position
+	startIndex = 0;
+	spaceIndex = particleStr.find(" ");
+	double posX = ParseDouble(particleStr, startIndex, spaceIndex);
+
+	startIndex = spaceIndex + 1;
+	spaceIndex = particleStr.find(" ", startIndex);
+	double posY = ParseDouble(particleStr, startIndex, spaceIndex);
+
+	startIndex = spaceIndex + 1;
+	spaceIndex = particleStr.find(" ", startIndex);
+	double posZ = ParseDouble(particleStr, startIndex, spaceIndex);
+
+	startIndex = spaceIndex + 1;
+	spaceIndex = particleStr.find(" ", startIndex);
+	double w = ParseDouble(particleStr, startIndex, spaceIndex);
+	posX /= w;
+	posY /= w;
+	posZ /= w;
+	cVector3d position(posX, posY, posZ);
+
+	// Parse velocity
+	startIndex = particleStr.find("(", startIndex);
+	startIndex++;
+	spaceIndex = particleStr.find(" ", startIndex);
+	double velocityX = ParseDouble(particleStr, startIndex, spaceIndex);
+
+	startIndex = spaceIndex + 1;
+	spaceIndex = particleStr.find(" ", startIndex);
+	double velocityY = ParseDouble(particleStr, startIndex, spaceIndex);
+
+	startIndex = spaceIndex + 1;
+	spaceIndex = particleStr.find("\t", startIndex);
+	double velocityZ = ParseDouble(particleStr, startIndex, spaceIndex);
+	cVector3d velocity(velocityX, velocityY, velocityZ);
+
+	// Ignore acceleration
+	startIndex = spaceIndex + 1;
+	spaceIndex = particleStr.find(" ", startIndex);
+	startIndex = spaceIndex + 1;
+	spaceIndex = particleStr.find(" ", startIndex);
+	startIndex = spaceIndex + 1;
+	spaceIndex = particleStr.find("\t", startIndex);
+	// Ignore life
+	startIndex = spaceIndex + 1;
+	spaceIndex = particleStr.find(" ", startIndex);
+	startIndex = spaceIndex + 1;
+	spaceIndex = particleStr.find("\t", startIndex);
+	// Ignore pstate
+	startIndex = spaceIndex + 1;
+	spaceIndex = particleStr.find("\t", startIndex);
+	
+	// Parse ID
+	startIndex = spaceIndex + 1;
+	spaceIndex = particleStr.find("\t", startIndex);
+	int id = ParseInt(particleStr, startIndex, spaceIndex);
+
+	// Ignore parent
+
+	return new GEOParticle(id, position, velocity);
+}
+
+const int NUMBER_STRING_BUFFER_SIZE = 32;
+double FrameDataParse::ParseDouble(const std::string& source, int startIndex, int endIndex) {
+	char numberBuffer[NUMBER_STRING_BUFFER_SIZE];
+	memset(numberBuffer, 0, NUMBER_STRING_BUFFER_SIZE * sizeof(char));
+
+	source.copy(numberBuffer, endIndex - startIndex, startIndex);
+	char* endPtr;
+	return strtod(numberBuffer, &endPtr);
+}
+
+int FrameDataParse::ParseInt(const std::string& source, int startIndex, int endIndex) {
+	char numberBuffer[NUMBER_STRING_BUFFER_SIZE];
+	memset(numberBuffer, 0, NUMBER_STRING_BUFFER_SIZE * sizeof(char));
+
+	source.copy(numberBuffer, endIndex - startIndex, startIndex);
+	return atoi(numberBuffer);
 }

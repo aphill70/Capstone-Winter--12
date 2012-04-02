@@ -1,5 +1,7 @@
 #pragma once
 
+#include <map>
+#include <set>
 #include <vector>
 
 #include "GEOParticle.h"
@@ -27,16 +29,20 @@ private:
 	GEOParticleSortData* ySortedPartIDs;
 	GEOParticleSortData* zSortedPartIDs;
 
-public:
+	// Finds all IDs that have a sort value between startVal and endVal
+	std::set<int> GetIDsInRange(const GEOParticleSortData* list, const double startVal, const double endVal);
 
-	FrameData(int totalPartCount, int livePartCount, GEOParticle** masterList);
+public:
+	FrameData(int totalPartCount, int livePartCount, map<int, GEOParticle*> masterList);
 	// THIS SHOULD ONLY BE USED TO ALLOCATE ARRAYS/VECTORS
 	FrameData(void);
 	virtual ~FrameData(void);
 
-	// Returns a list of particle IDs for particles that are in the specified range
-//	vector<int> GetIDsInRange(const double neighborhoodSize, const cVector3d& center);
+	// Returns a list of particle IDs for particles that are in the specified neighborhood
+	std::set<int> GetIDsInNeighborhood(const double neighborhoodSize, const cVector3d& center);
 	// Returns the particle with the given ID
 	GEOParticle* GetParticleByID(int partId);
+	// Returns the total number of particles that are alive
+	int GetTotalActiveParticles(void);
 };
 

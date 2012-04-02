@@ -9,11 +9,14 @@
 #include "SPHFluid.h"
 #include "IFluidParticle.h"
 
+#define NEIGHBORHOOD_SIZE 1.0
+
 class GEOFileFluid : public SPHFluid {
 protected:
-	vector<FrameData> frames;
+	FrameData** frames;
 	int frameCount;
 	int currentFrame;
+	int maxSimParticles;
 
 public:
 	// Creates a GEOFileFluid by loading in a set of .geo files with the 
@@ -25,13 +28,14 @@ public:
 
 	// Finds all the points in the fluid simulation and copies them into the list 'destination'
 	virtual void GetAllPoints(std::vector<IFluidParticle*>& destination);
-	// Returns the number of particles in the simulation
+	// Returns the number of particles in the simulation at the current frame
 	virtual int GetPointCount(void);
 	// Finds the velocity of the fluid at the given point and copies it into 'velocity'
 	virtual void GetVelocityAt(cVector3d& velocity, const cVector3d& location);
 	// Returns the fastest possible speed of a particle
 	virtual double GetMaxParticleSpeed(void);
-
+	// Max number of particles being simulated at any given time
+	virtual int GetMaxSimulatedParticles();
 	// Advances the fluid simulation one frame
 	virtual void AdvanceFrame(void);
 };

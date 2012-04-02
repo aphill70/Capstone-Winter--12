@@ -5,11 +5,14 @@ GEOParticle::GEOParticle(int id, cVector3d& position, cVector3d& velocity) :
 {
 }
 
-	GEOParticle::GEOParticle(const GEOParticle& other) : _id(other._id), _position(other._position), _velocity(other._velocity)
-{
+GEOParticle::GEOParticle(const GEOParticle& other) : _id(other._id), _position(other._position), _velocity(other._velocity){
+}
+
+GEOParticle::GEOParticle(void) : _id(-1), _position(0, 0, 0), _velocity(0, 0, 0) {
 }
 
 GEOParticle::~GEOParticle(void) {
+	printf("Deleted a GEOParticle\n");
 }
 
 int GEOParticle::GetID(void){

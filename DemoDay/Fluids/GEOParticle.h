@@ -11,6 +11,8 @@ protected:
 public:
 	GEOParticle(int id, cVector3d& position, cVector3d& velocity);
 	GEOParticle(const GEOParticle& other);
+	// THIS SHOULD ONLY BE USED TO ALLOCATE ARRAYS/VECTORS
+	GEOParticle(void);
 	virtual ~GEOParticle(void);
 
 	int GetID(void);
