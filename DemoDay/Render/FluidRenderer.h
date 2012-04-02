@@ -3,7 +3,7 @@
 #include "chai3d.h"
 #include "glm/glm.hpp"
 #include <vector>
-
+#include "IFluid.h"
 
 
 using namespace glm;
@@ -13,7 +13,7 @@ class FluidRenderer
 
 public:
 	FluidRenderer();
-	void InitFluids(cWorld*);
+	void InitFluids(cWorld*,IFluid*);
 	void UpdateFluid(cWorld*);
 
 private:
@@ -27,5 +27,7 @@ private:
 	vec4 * glmAdd(vec4* sphere, vec4* velocity);
 
 	vector<cShapeSphere*> particles;
+
+	IFluid * fluidModel;
 
 };
