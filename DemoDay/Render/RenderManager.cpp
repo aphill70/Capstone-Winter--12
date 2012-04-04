@@ -32,7 +32,7 @@ void RenderManager::Initialize(IFluid * fluid)
 	cGenericObject* cursor = hapticRenderer.GetCursor();
 	inputManager.SetHapticCursor(cursor);
 
-	fluidRenderer.InitFluids(world, fluidModel);
+	//fluidRenderer.InitFluids(world, fluidModel);
 
 	InitializeGlut();
 
@@ -89,6 +89,8 @@ void RenderManager::UpdateGraphics()
 	cMatrix3d cam = inputManager.GetCameraTransformations();
 	worldRenderer.SetCamera(cam);
 
+	//fluidRenderer.UpdateFluid(world);
+
 	//make sure to step other renderers and simulation
 	worldRenderer.RenderCamera(displayW, displayH);
 	
@@ -102,8 +104,6 @@ void RenderManager::UpdateGraphics()
 		glutPostRedisplay();
 	else
 		simEnded = true;
-
-	fluidRenderer.UpdateFluid(world);
 }
 
 void RenderManager::GetHapticCursorPosition(cVector3d& c)

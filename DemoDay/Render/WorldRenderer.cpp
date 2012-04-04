@@ -101,10 +101,11 @@ void WorldRenderer::RenderAxes(int magnitude)
 void WorldRenderer::RenderSky(int length)
 {
 	cColorb lowersky, uppersky;
-	lowersky.set(165,207,255);
-	uppersky.set(132,187,254);
-
-	cTriangle *lower, *upper;
+	
+	//lowersky.set(165,207,255);
+	lowersky.set(192,218,241);
+	//uppersky.set(132,187,254);
+	uppersky.set(94,137,174);
 
 	//define values for creating coordinates
 	double posX = length / 2.0;
@@ -122,7 +123,6 @@ void WorldRenderer::RenderSky(int length)
 	skybox[0]->newTriangle(	cVector3d(posX, negY, posZ), 
 							cVector3d(posX, posY, negZ),
 							cVector3d(posX, negY, negZ));
-	lower = skybox[0]->getTriangle(0);
 	skybox[0]->newTriangle( cVector3d(posX, negY, posZ),
 							cVector3d(posX, posY, posZ),
 							cVector3d(posX, posY, negZ));
@@ -195,4 +195,26 @@ void WorldRenderer::RenderGround(int length)
 {
 	ground = new cMesh(world);
 	world->addChild(ground);
+	//add Vertices to mesh
+	//0 = +X, +Z
+	ground->newVertex(length / 2.0, 0, length / 2.0);
+	//1 = +X, -Z
+	ground->newVertex(length / 2.0, 0, length / -2.0);
+	//2 = -X, +Z
+	ground->newVertex(length / -2.0, 0, length / 2.0);
+	//3 = -X, +Z
+	ground->newVertex(length / -2.0, 0, length / -2.0);
+
+	ground->newTriangle(0, 1, 2);
+	ground->newTriangle(1, 3, 2);
+
+	ground->setUseVertexColors(true);
+	
+	cColorb grass;
+	grass.set(131,189,93);
+
+	for(int i = 0; i < ground->getNumVertices(); i++)
+	{
+		ground->getVertex(i)->setColor(grass);
+	}
 }

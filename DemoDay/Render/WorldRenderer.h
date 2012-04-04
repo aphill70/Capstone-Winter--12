@@ -2,11 +2,14 @@
 
 #include "chai3d.h"
 #include "WorldTransformation.h"
+#include <iostream>
+
+using namespace std;
 
 #define XAXIS		0
 #define YAXIS		1
 #define ZAXIS		2
-#define AXIS_LEN	10
+#define AXIS_LEN	3
 #define WORLD_BOUND	50
 
 class WorldRenderer
