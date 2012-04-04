@@ -16,7 +16,7 @@ public:
 		
 	}
 	// Returns the number of particles in the simulation
-	int GetPointCount(void) {
+	int GetCurrentPointCount(void) {
 		return 1;
 	}
 	// Finds the velocity of the fluid at the given point and copies it into 'velocity'

@@ -4,18 +4,31 @@
 GEOFileFluid::GEOFileFluid(const string& baseFileName, int startFrame, int endFrame) : 
 	frameCount(endFrame - startFrame + 1), currentFrame(0), maxSimParticles(0)
 {
+	printf("Loading .geo files\n");
+
 	frames = new FrameData*[frameCount];
+	double incrementPercent = 1.0 / frameCount;
+	double percent = 0;
 	for (int i = startFrame; i <= endFrame; i++) {
 		char intConvert[21];
 		sprintf(intConvert, "%03d", i);
 		FrameData* currentFrame = FrameDataParse::ParseFrame(baseFileName + intConvert + ".geo");
 		frames[i - startFrame] = currentFrame;
 	
-		int curActiveParticles = currentFrame->GetTotalActiveParticles();
+		int curActiveParticles = currentFrame->_livePartCount;
 		if (maxSimParticles < curActiveParticles) { 
 			maxSimParticles = curActiveParticles; 
 		}
+
+		// Just for display
+		percent += incrementPercent;
+		if (percent > 0.05) {
+			printf(".");
+			percent = 0;
+		}
 	}
+
+	printf(".    Done!");
 
 	
 }
@@ -27,19 +40,30 @@ GEOFileFluid::~GEOFileFluid(void) {
 	delete[] frames;
 }
 
-void GEOFileFluid::GetAllPoints(std::vector<IFluidParticle*>& destination) {
-	//frames[currentFrame]->;
+void GEOFileFluid::GetFullPointList(std::vector<IFluidParticle*>& destination) {
+	destination = std::vector<IFluidParticle*>(frames[currentFrame]->particleList.begin(), frames[currentFrame]->particleList.end());
 }
 
-int GEOFileFluid::GetPointCount(void) {
-	return frames[currentFrame]->GetTotalActiveParticles();
+void GEOFileFluid::GetAllPoints(std::vector<IFluidParticle*>& destination) {
+	FrameData* frame = frames[currentFrame];
+	GEOParticleSortData* liveParticleList = frame->xSortedPartIDs;
+	destination = std::vector<IFluidParticle*>(frame->_livePartCount, 0);
+	for (int i = 0; i < frame->_livePartCount; i++) {
+		int index = liveParticleList[i].id;
+		destination[i] = frame->particleList[index];
+	}
+}
+
+int GEOFileFluid::GetCurrentPointCount(void) {
+	return frames[currentFrame]->_livePartCount;
 }
 
 void GEOFileFluid::GetVelocityAt(cVector3d& velocity, const cVector3d& location) {
+	printf("asking for velocity\n");
 	FrameData* currentData = frames[currentFrame];
 	std::set<int> ids = currentData->GetIDsInNeighborhood(NEIGHBORHOOD_SIZE, location);
 	GEOParticle* currentParticle;
-	double averageSum;
+	cVector3d averageSum;
 	for (std::set<int>::iterator partIter = ids.begin(); partIter != ids.end(); partIter++) {
 		currentParticle = currentData->GetParticleByID(*partIter);
 		cVector3d currentVelocity, currentPosition;
@@ -48,8 +72,11 @@ void GEOFileFluid::GetVelocityAt(cVector3d& velocity, const cVector3d& location)
 		currentParticle->GetVelocity(currentVelocity);
 
 		double weight = 1.0 / pow(currentPosition.length(), 3);
-
+		averageSum += weight * currentVelocity;
 	}
+
+	averageSum.mul(1.0 / ids.size());
+	velocity.copyfrom(averageSum);
 }
 
 double GEOFileFluid::GetMaxParticleSpeed(void) {
@@ -61,4 +88,7 @@ int GEOFileFluid::GetMaxSimulatedParticles() {
 	return maxSimParticles;
 }
 
-void GEOFileFluid::AdvanceFrame(void) { currentFrame++; }
+void GEOFileFluid::AdvanceFrame(void) { 
+	currentFrame++; 
+	currentFrame %= frameCount;
+}

@@ -8,7 +8,7 @@
 #include "IHapticDevice.h"
 
 #define BOX_RADIUS		0.75
-#define MIN_DIST		3
+#define MIN_DIST		7.5
 
 using namespace glm;
 using namespace std;

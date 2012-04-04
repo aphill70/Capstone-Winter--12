@@ -12,7 +12,6 @@ GEOParticle::GEOParticle(void) : _id(-1), _position(0, 0, 0), _velocity(0, 0, 0)
 }
 
 GEOParticle::~GEOParticle(void) {
-	printf("Deleted a GEOParticle\n");
 }
 
 int GEOParticle::GetID(void){

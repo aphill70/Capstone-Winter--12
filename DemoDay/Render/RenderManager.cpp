@@ -55,7 +55,7 @@ void RenderManager::InitializeGlut()
 	// initialize the OpenGL GLUT window
     glutInitWindowPosition(windowPosX, windowPosY);
     glutInitWindowSize(WINDOW_SIZE_W, WINDOW_SIZE_H);
-    glutInitDisplayMode(GLUT_RGB | GLUT_DEPTH | GLUT_DOUBLE);
+    glutInitDisplayMode(GLUT_RGBA | GLUT_DEPTH | GLUT_DOUBLE);
     glutCreateWindow(argv[0]);
 	glutDisplayFunc(RenderManager::GLUpdateGraphics);	
 	glutPassiveMotionFunc(RenderManager::GLMouseMotion);
@@ -64,7 +64,7 @@ void RenderManager::InitializeGlut()
 	glutKeyboardFunc(RenderManager::GLKeyDown);
 	glutKeyboardUpFunc(RenderManager::GLKeyUp);
     glutReshapeFunc(RenderManager::GLResizeWindow);
-    glutSetWindowTitle("CHAI 3D");
+    glutSetWindowTitle("Haptic Fluid Render");
 
 	glutSetCursor(GLUT_CURSOR_NONE);
 	glutWarpPointer(WINDOW_SIZE_W / 2, WINDOW_SIZE_H / 2);

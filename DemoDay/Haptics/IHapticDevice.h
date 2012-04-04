@@ -25,7 +25,7 @@ public:
 	virtual void GetCursorVelocity(cVector3d& destination) = 0;
 
 	// Initializes the haptic device. The device is ready to use once this function returns.
-	//TODO: decide if SetTerrain and SetFluid must be called before this function is called.
+	//TODO: decide if the terrain and fluid model must be set before this function is called.
 	//   If not, move this code to the constructor
 	virtual void Init(void) = 0;
 

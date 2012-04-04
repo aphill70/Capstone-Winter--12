@@ -20,7 +20,9 @@ private:
 	cWorld * world;
 	
 	double diameter;
-	void RenderSphere(glm::vec4*);
+	cMaterial fluidMaterial;
+
+	cShapeSphere* RenderSphere(glm::vec4*);
 	void RenderSphere(glm::vec4*, glm::vec4* velocity);
 	void RenderLine(glm::vec4*, glm::vec4*);
 

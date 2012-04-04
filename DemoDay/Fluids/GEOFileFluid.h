@@ -26,10 +26,13 @@ public:
 	GEOFileFluid(const string& baseFileName, int startFrame, int endFrame);
 	virtual ~GEOFileFluid(void);
 
-	// Finds all the points in the fluid simulation and copies them into the list 'destination'
+	// Finds all the live points in the fluid simulation and copies them into the list 'destination'
 	virtual void GetAllPoints(std::vector<IFluidParticle*>& destination);
-	// Returns the number of particles in the simulation at the current frame
-	virtual int GetPointCount(void);
+	// Finds all the points in the fluid simulation and copies them into the list 'destination'
+	// If the particle is dead, the vector will contain a null pointer.
+	virtual void GetFullPointList(std::vector<IFluidParticle*>& destination);
+	// Returns the number of particles in the simulation's current frame
+	virtual int GetCurrentPointCount(void);
 	// Finds the velocity of the fluid at the given point and copies it into 'velocity'
 	virtual void GetVelocityAt(cVector3d& velocity, const cVector3d& location);
 	// Returns the fastest possible speed of a particle

@@ -1,30 +1,29 @@
 #include "FluidRenderer.h"
+#include "IFluidParticle.h"
 
 //IFluid h
 
-FluidRenderer::FluidRenderer() {}
+FluidRenderer::FluidRenderer() {
+	fluidMaterial.m_ambient.set(0.0, 0.635, 0.910);
+    fluidMaterial.m_diffuse.set(1.0, 0.5, 0.0);
+    fluidMaterial.m_specular.set(1.0, 1.0, 1.0);
+	fluidMaterial.setTransparencyLevel(0.1);
+}
 
 void FluidRenderer::InitFluids(cWorld* w, IFluid * fluid)
 {
 	this->world = w;
 	this->fluidModel = fluid;
 	fluidModel->AdvanceFrame();
-	diameter = 1;
-
-	for(int i = 0; i < fluidModel->GetMaxSimulatedParticles(); i++ ) {
-		std::cout << "size2: " << fluidModel->GetMaxSimulatedParticles() << std::endl;
-		cShapeSphere * c = new cShapeSphere(diameter);
-		c->setPos(0,0,0);
-		world->addChild(c);
-		particles.push_back(c);
-		
-	}
+	diameter = 0.2;
 }
 
-void FluidRenderer::RenderSphere(glm::vec4 * sphere) {
+cShapeSphere* FluidRenderer::RenderSphere(glm::vec4 * sphere) {
 	cShapeSphere * s = new cShapeSphere(diameter);
 	s->setPos(sphere->x, sphere->y, sphere->z);
+	s->m_material = fluidMaterial;
 	world->addChild(s);
+	return s;
 }
 
 void FluidRenderer::RenderSphere(glm::vec4* sphere, glm::vec4* velocity) {
@@ -41,19 +40,45 @@ void FluidRenderer::RenderLine(glm::vec4* pt1, glm::vec4* pt2) {
 
 void FluidRenderer::UpdateFluid(cWorld * w) {
 	fluidModel->AdvanceFrame();
-	//std::cout << "size2: " << fluidModel->GetMaxSimulatedParticles() << std::endl;
 	world = w;
-
-	RenderSphere(new glm::vec4(0,0,3,0));
 
 	vector<IFluidParticle*> v;
 	fluidModel->GetAllPoints(v);
-	//std::cout << "size3: " << v.size() << std::endl;
 
-	
+	int sphereCount = particles.size();
+	int particleCount = v.size();
 
+	int currentIndex = 0;
+	int smallerCount = sphereCount < particleCount ? sphereCount : particleCount;
+	while(currentIndex < smallerCount) {
+		cVector3d curPartPosition;
+		v[currentIndex]->GetPosition(curPartPosition);
+		particles[currentIndex]->setPos(curPartPosition);
 
+		currentIndex++;
+	}
 
+	if (currentIndex == particleCount) {
+		// Stop
+	} else if (currentIndex < particleCount) {
+		// Start adding spheres
+		while (currentIndex < particleCount) {
+			cVector3d curPartPosition;
+			v[currentIndex]->GetPosition(curPartPosition);
+
+			cShapeSphere* addSphere = RenderSphere(new glm::vec4(curPartPosition.x, curPartPosition.y, curPartPosition.z, 1));
+			particles.push_back(addSphere);
+			currentIndex++;
+		}
+	} else {
+		// Start removing spheres
+		while(particles.size() > particleCount) {
+			cShapeSphere* extraSphere = particles[particles.size() - 1];
+			world->removeChild(extraSphere);
+			delete extraSphere;
+			particles.pop_back();
+		}
+	}
 }
 
 vec4 * FluidRenderer::glmAdd(vec4* sphere, vec4* velocity) {

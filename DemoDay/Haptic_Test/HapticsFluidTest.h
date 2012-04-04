@@ -28,7 +28,7 @@ public:
 	void GetAllPoints(std::vector<IFluidParticle*>&) {}
 	double GetMaxParticleSpeed(void);
 	virtual void AdvanceFrame(void) {};
-	int GetPointCount(void) { return 0; };
+	int GetCurrentPointCount(void) { return 0; };
 private:
 	HapticTestRunner * testRunner;
 };

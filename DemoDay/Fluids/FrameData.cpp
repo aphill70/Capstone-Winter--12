@@ -19,10 +19,13 @@ FrameData::FrameData(int totalPartCount, int livePartCount, map<int, GEOParticle
 	xSortedPartIDs = new GEOParticleSortData[livePartCount];
 	ySortedPartIDs = new GEOParticleSortData[livePartCount];
 	zSortedPartIDs = new GEOParticleSortData[livePartCount];
+	memset(xSortedPartIDs, 0, livePartCount * sizeof(GEOParticleSortData));
+	memset(ySortedPartIDs, 0, livePartCount * sizeof(GEOParticleSortData));
+	memset(zSortedPartIDs, 0, livePartCount * sizeof(GEOParticleSortData));
 
 	int index = 0;
 	int liveParticleIndex = 0;
-	for ( map<int, GEOParticle*>::iterator it = masterList.begin(); it != masterList.end(); it++ ) {
+	for ( map<int, GEOParticle*>::iterator it = masterList.begin(); it != masterList.end(); it++, liveParticleIndex++ ) {
 		GEOParticle* curParticle = (*it).second;
 		assert(curParticle);
 		
@@ -44,9 +47,9 @@ FrameData::FrameData(int totalPartCount, int livePartCount, map<int, GEOParticle
 		index++;
 	}
 
-	qsort(xSortedPartIDs, livePartCount, sizeof(int), comparePartSortData);
-	qsort(ySortedPartIDs, livePartCount, sizeof(int), comparePartSortData);
-	qsort(zSortedPartIDs, livePartCount, sizeof(int), comparePartSortData);
+	qsort(xSortedPartIDs, livePartCount, sizeof(GEOParticleSortData), comparePartSortData);
+	qsort(ySortedPartIDs, livePartCount, sizeof(GEOParticleSortData), comparePartSortData);
+	qsort(zSortedPartIDs, livePartCount, sizeof(GEOParticleSortData), comparePartSortData);
 }
 
 FrameData::FrameData(void) : _totalPartCount(-1), _livePartCount(-1) {
@@ -61,8 +64,6 @@ FrameData::~FrameData(void) {
 	for ( vector<GEOParticle*>::iterator it = particleList.begin(); it != particleList.end(); it++ ) {
 		delete *it;
 	}
-
-	printf("Deleted a FrameData\n");
 }
 
 std::set<int> FrameData::GetIDsInRange(const GEOParticleSortData* list, const double lowerBound, const double upperBound) {
@@ -143,6 +144,3 @@ GEOParticle* FrameData::GetParticleByID(int partId) {
 	return particleList[partId];
 }
 
-int FrameData::GetTotalActiveParticles(void) {
-	return _livePartCount;
-}

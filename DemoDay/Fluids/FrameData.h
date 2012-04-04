@@ -1,9 +1,13 @@
 #pragma once
 
+// Forward declaration
+class FrameData;
+
 #include <map>
 #include <set>
 #include <vector>
 
+#include "GEOFileFluid.h"
 #include "GEOParticle.h"
 
 struct GEOParticleSortData {
@@ -15,6 +19,7 @@ struct GEOParticleSortData {
 int comparePartSortData(const void* first, const void* second);
 
 class FrameData {
+	friend class GEOFileFluid;
 private:
 	// The total number of particles in the simulation
 	int _totalPartCount;
@@ -42,7 +47,5 @@ public:
 	std::set<int> GetIDsInNeighborhood(const double neighborhoodSize, const cVector3d& center);
 	// Returns the particle with the given ID
 	GEOParticle* GetParticleByID(int partId);
-	// Returns the total number of particles that are alive
-	int GetTotalActiveParticles(void);
 };
 
