@@ -71,6 +71,7 @@ public:
 	}
 
 	void GetHapticCursorPosition(cVector3d&);
+	cVector3d RotateVector(const cVector3d&); 
 
 	RenderManager(RenderManager const&);
 	void operator=(RenderManager const&);

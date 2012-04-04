@@ -111,6 +111,11 @@ void RenderManager::GetHapticCursorPosition(cVector3d& c)
 	inputManager.GetHapticCursorPosition(c);
 }
 
+cVector3d RenderManager::RotateVector(const cVector3d& vec)
+{
+	return inputManager.RotateVector(vec);
+}
+
 void RenderManager::MouseMotion(int x, int y)
 {
 	inputManager.MouseMotion(x, y);

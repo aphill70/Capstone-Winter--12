@@ -43,7 +43,7 @@ void InputManager::SetHapticCursor(cGenericObject* cursor)
 	hapticInput.SetCursor(cursor);
 }
 
-void InputManager::`GetHapticCursorPosition(cVector3d& c)
+void InputManager::GetHapticCursorPosition(cVector3d& c)
 {
 	hapticInput.GetCursorPosition(c);
 }
@@ -66,6 +66,14 @@ void InputManager::KeyUp(unsigned char key, int x, int y)
 void InputManager::KeyDown(unsigned char key, int x, int y)
 {
 	keyboardInput.HandleKeyPress(key);
+}
+
+cVector3d InputManager::RotateVector(const cVector3d& vec)
+{
+	dvec4 glmVec = dvec4(vec.x, vec.y, vec.z, 1);
+	dvec4 newVec = rotateToWorld * glmVec;
+	//might need to negate z coordinate
+	return cVector3d(newVec.x, newVec.y, 0 - newVec.z);
 }
 
 cMatrix3d InputManager::GetCameraTransformations()
@@ -151,6 +159,6 @@ void InputManager::BuildCamToWorld()
 
 	dmat4x4 changeBaseINV = inverse(changeBase);
 	dmat4x4 eye2originINV = inverse(eye2origin);
-	
+	rotateToWorld = changeBaseINV;
 	camToWorld = eye2originINV * changeBaseINV;
 }

@@ -1,5 +1,9 @@
 #include "KeyboardInput.h"
 
+//delete these two
+#include "RenderManager.h"
+#include "chai3d.h"
+
 KeyboardInput::KeyboardInput(void) : 
 	forwardPressed(false), backPressed(false), 
 	leftPressed(false), rightPressed(false), 
@@ -71,8 +75,16 @@ void KeyboardInput::MoveDown(WorldTransformation& transform) {
 }
 
 void KeyboardInput::HandleKeyPress(unsigned char key) {
-	if(modeFlag->GetMode() != FREE)
+	if(modeFlag->GetMode() != FREE)	
+	{//for debugging only
+		if(key == 'p')
+		{
+			cVector3d vec = cVector3d(0, 0, 1);
+			cVector3d cur = RenderManager::getInstance().RotateVector(vec);
+			cout << cur.x << " " << cur.y << " " << cur.z << endl;
+		}
 		return;
+	}
 
 	switch (key) {
 	case FORWARD_BUTTON:

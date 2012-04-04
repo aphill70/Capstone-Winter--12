@@ -28,6 +28,7 @@ private:
 	WorldTransformation transforms;
 	
 	dmat4x4 camToWorld;
+	dmat4x4 rotateToWorld;
 
 	void BuildCamToWorld();
 
@@ -38,6 +39,7 @@ public:
 	void SetWindowDimensions(int, int);
 	void SetHapticCursor(cGenericObject* cursor);
 	void GetHapticCursorPosition(cVector3d&);
+	cVector3d RotateVector(const cVector3d&);
 	void UpdateTransforms(void);
 
 	void MouseMotion(int, int);

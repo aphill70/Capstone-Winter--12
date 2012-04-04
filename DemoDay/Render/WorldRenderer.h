@@ -6,6 +6,8 @@
 #define XAXIS		0
 #define YAXIS		1
 #define ZAXIS		2
+#define AXIS_LEN	10
+#define WORLD_BOUND	50
 
 class WorldRenderer
 {
@@ -15,8 +17,13 @@ private:
 	cLight* light;
 
 	cShapeLine* axes[3];	//As is the plural of "axis"
+	cMesh* skybox[5];		//Render a skybox
+	cMesh* ground;			//Render the Ground
 
 	void RenderAxes(int);
+	void RenderSky(int);
+	void RenderGround(int);
+
 	void InitCamera(cMatrix3d);
 	void InitLight(void);
 

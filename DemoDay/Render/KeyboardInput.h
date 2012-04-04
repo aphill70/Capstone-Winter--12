@@ -6,6 +6,8 @@
 #define _USE_MATH_DEFINES
 #include <math.h>
 
+#include <iostream>
+
 // Smallest unit of movement
 #define MOVEMENT_DELTA 0.3
 #define FORWARD_BUTTON 'w'

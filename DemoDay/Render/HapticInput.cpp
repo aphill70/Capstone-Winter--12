@@ -29,9 +29,6 @@ void HapticInput::UpdateCursor(dmat4x4 CamToWorld)
 	HapticPos.z = ( -1 * HapticPos.z / hapticDevice->GetHapticRadius() + 1) * BOX_RADIUS + MIN_DIST;
 
 	dvec4 point = CamToWorld * dvec4(HapticPos.x, HapticPos.y, HapticPos.z, 1);
-
-	cout << HapticPos.x << " " << HapticPos.y << " " << HapticPos.z << endl;
-	//cursor->setPos(HapticPos);
 	cursor->setPos(cVector3d(point.x, point.y, point.z));
 }
 
