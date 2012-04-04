@@ -1,4 +1,0 @@
-[DeviceManager::DeviceManager():16.04.53.0042] - Constructor
-[ConfigManager::loadIni():16.04.53.0047] - Found hdal.ini at C:\Program Files (x86)\novint\HDAL_SDK_3.0.27\config\hdal.ini
-[Module::Module():16.04.53.0050] - Found dhdlcDriver.dll at C:\Program Files (x86)\novint\HDAL_SDK_3.0.27\bin\dhdlcDriver.dll
-[ConfigManager::loadIni():16.04.53.0212] - Found hdal.ini at C:\Program Files (x86)\novint\HDAL_SDK_3.0.27\config\hdal.ini
