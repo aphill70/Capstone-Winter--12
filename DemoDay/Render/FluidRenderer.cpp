@@ -2,14 +2,23 @@
 
 //IFluid h
 
-FluidRenderer::FluidRenderer()
-{
+FluidRenderer::FluidRenderer() {}
 
-}
-
-void FluidRenderer::InitFluids(cWorld* w)
+void FluidRenderer::InitFluids(cWorld* w, IFluid * fluid)
 {
-	world = w;
+	this->world = w;
+	this->fluidModel = fluid;
+	fluidModel->AdvanceFrame();
+	diameter = 1;
+
+	for(int i = 0; i < fluidModel->GetMaxSimulatedParticles(); i++ ) {
+		std::cout << "size2: " << fluidModel->GetMaxSimulatedParticles() << std::endl;
+		cShapeSphere * c = new cShapeSphere(diameter);
+		c->setPos(0,0,0);
+		world->addChild(c);
+		particles.push_back(c);
+		
+	}
 }
 
 void FluidRenderer::RenderSphere(glm::vec4 * sphere) {
@@ -31,11 +40,18 @@ void FluidRenderer::RenderLine(glm::vec4* pt1, glm::vec4* pt2) {
 }
 
 void FluidRenderer::UpdateFluid(cWorld * w) {
+	fluidModel->AdvanceFrame();
+	//std::cout << "size2: " << fluidModel->GetMaxSimulatedParticles() << std::endl;
 	world = w;
-	if(world != NULL)
-		RenderSphere(new glm::vec4(0,0,3,0));
-	else
-		std::cout << " world null" << std::endl;
+
+	RenderSphere(new glm::vec4(0,0,3,0));
+
+	vector<IFluidParticle*> v;
+	fluidModel->GetAllPoints(v);
+	//std::cout << "size3: " << v.size() << std::endl;
+
+	
+
 
 
 }

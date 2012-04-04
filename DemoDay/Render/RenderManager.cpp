@@ -17,6 +17,7 @@ RenderManager::~RenderManager()
 
 void RenderManager::Initialize(IFluid * fluid)
 {
+	fluidModel = fluid;
 	world = new cWorld();
 	world->setBackgroundColor( 0, 0, 0);
 
@@ -31,7 +32,7 @@ void RenderManager::Initialize(IFluid * fluid)
 	cGenericObject* cursor = hapticRenderer.GetCursor();
 	inputManager.SetHapticCursor(cursor);
 
-	fluidRenderer.InitFluids(world);
+	fluidRenderer.InitFluids(world, fluidModel);
 
 	InitializeGlut();
 
@@ -102,7 +103,7 @@ void RenderManager::UpdateGraphics()
 	else
 		simEnded = true;
 
-	//fluidRenderer.UpdateFluid(world);
+	fluidRenderer.UpdateFluid(world);
 }
 
 void RenderManager::GetHapticCursorPosition(cVector3d& c)
