@@ -2,10 +2,9 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9.00"
-	Name="Haptics"
-	ProjectGUID="{7830F8C5-9DA6-4E4B-B2D3-E9B13CC50D0B}"
-	RootNamespace="Haptics"
-	Keyword="Win32Proj"
+	Name="Render_Test"
+	ProjectGUID="{7D83004E-9D22-45C0-8A46-590D2DE3B439}"
+	RootNamespace="Render_Test"
 	TargetFrameworkVersion="196613"
 	>
 	<Platforms>
@@ -20,8 +19,8 @@
 			Name="Debug|Win32"
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
-			ConfigurationType="4"
-			CharacterSet="1"
+			ConfigurationType="1"
+			CharacterSet="2"
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
@@ -41,12 +40,11 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;$(CHAI_ROOT)\external\hdFalcon\include\&quot;;&quot;$(CHAI_ROOT)\src&quot;;..\Terrain;..\Fluids"
+				AdditionalIncludeDirectories="&quot;$(CHAI_ROOT)\external\hdFalcon\include\&quot;;&quot;$(CHAI_ROOT)\src&quot;;..\Haptics;..\Terrain;..\Fluids;..\Globals;..\Render;..\lib"
 				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE;_MSVC"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
-				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				DebugInformationFormat="4"
 			/>
@@ -60,10 +58,17 @@
 				Name="VCPreLinkEventTool"
 			/>
 			<Tool
-				Name="VCLibrarianTool"
+				Name="VCLinkerTool"
+				AdditionalDependencies="chai3d-debug.lib"
+				AdditionalLibraryDirectories="$(CHAI_ROOT)\lib\msvc9"
+				GenerateDebugInformation="true"
+				TargetMachine="1"
 			/>
 			<Tool
 				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
 			/>
 			<Tool
 				Name="VCXDCMakeTool"
@@ -75,6 +80,9 @@
 				Name="VCFxCopTool"
 			/>
 			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
 				Name="VCPostBuildEventTool"
 			/>
 		</Configuration>
@@ -83,7 +91,7 @@
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="1"
-			CharacterSet="1"
+			CharacterSet="2"
 			WholeProgramOptimization="1"
 			>
 			<Tool
@@ -105,10 +113,8 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
-				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
-				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				DebugInformationFormat="3"
 			/>
@@ -123,9 +129,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				LinkIncremental="1"
 				GenerateDebugInformation="true"
-				SubSystem="1"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
 				TargetMachine="1"
@@ -155,12 +159,8 @@
 	</Configurations>
 	<References>
 		<ProjectReference
-			ReferencedProjectIdentifier="{3AF663BD-BA92-415C-96A3-2AE40969F19F}"
-			RelativePathToProject=".\Terrain\Terrain.vcproj"
-		/>
-		<ProjectReference
-			ReferencedProjectIdentifier="{2B8E1002-BC22-4E41-9DBE-296A99C64047}"
-			RelativePathToProject=".\Fluids\Fluids.vcproj"
+			ReferencedProjectIdentifier="{5FB99FEA-BA59-44B9-AF7F-32DAD9387129}"
+			RelativePathToProject=".\Render\Render.vcproj"
 		/>
 	</References>
 	<Files>
@@ -170,23 +170,7 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\DirectionalViscositySenseMode.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\FalconDevice.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\GenericDevice.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\UniformViscositySenseMode.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\VirtualHapticDevice.cpp"
+				RelativePath=".\Main.cpp"
 				>
 			</File>
 		</Filter>
@@ -195,34 +179,6 @@
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
-			<File
-				RelativePath=".\DirectionalViscositySenseMode.h"
-				>
-			</File>
-			<File
-				RelativePath=".\FalconDevice.h"
-				>
-			</File>
-			<File
-				RelativePath=".\GenericDevice.h"
-				>
-			</File>
-			<File
-				RelativePath=".\IHapticDevice.h"
-				>
-			</File>
-			<File
-				RelativePath=".\IHapticMode.h"
-				>
-			</File>
-			<File
-				RelativePath=".\UniformViscositySenseMode.h"
-				>
-			</File>
-			<File
-				RelativePath=".\VirtualHapticDevice.h"
-				>
-			</File>
 		</Filter>
 		<Filter
 			Name="Resource Files"

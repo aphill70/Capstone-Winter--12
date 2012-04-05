@@ -7,6 +7,9 @@
 //  for that mode.
 HapticsFluidTest::HapticsFluidTest(const e_TestMode mode, const cVector3d initial) {
 	switch(mode) {
+		case X_AXIS_OSCILLATING:
+			testRunner = new OscillatingHapticTestRunner(initial, OscillatingHapticTestRunner::X_AXIS);
+			break;
 		case CONSTANT_VELOCITY:
 		default:
 			testRunner = new ConstantHapticTestRunner(initial);

@@ -1,10 +1,13 @@
 #pragma once
+#include <vector>
 #include "chai3d.h"
 #include "IFluid.h"
+#include "IFluidParticle.h"
 #include "HapticTestRunner.h"
 #include "ConstRunner.h"
+#include "OscillRunner.h"
 #include "ITerrain.h"
-#include <vector>
+
 
 #define TEST_FLUID_MAX_SPEED 0.05
 
@@ -22,9 +25,10 @@ public:
 	HapticsFluidTest(const e_TestMode mode, const cVector3d initial);
 	~HapticsFluidTest();
 	void GetVelocityAt(cVector3d& velocity, const cVector3d& location);
-	void GetAllPoints(std::vector<cVector3d>&) {}
-	void SetTerrain(ITerrain*) {}
+	void GetAllPoints(std::vector<IFluidParticle*>&) {}
 	double GetMaxParticleSpeed(void);
+	virtual void AdvanceFrame(void) {};
+	int GetCurrentPointCount(void) { return 0; };
 private:
 	HapticTestRunner * testRunner;
 };

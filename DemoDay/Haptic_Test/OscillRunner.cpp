@@ -1,8 +1,8 @@
 #include "OscillRunner.h"
 
 // constants
-const double OscillatingHapticTestRunner::TIMEOUT_PERIOD = 0.025; // timeout for clock
-const double OscillatingHapticTestRunner::INCREMENT_AMOUNT = 0.025; // increment for oscAmount
+const double OscillatingHapticTestRunner::TIMEOUT_PERIOD = 5.0; // timeout for clock
+const double OscillatingHapticTestRunner::INCREMENT_AMOUNT = 0.5; // increment for oscAmount
 
 // -- OscillatingHapticTestRunner
 // @param initialVector the initial vector
@@ -22,6 +22,7 @@ OscillatingHapticTestRunner::OscillatingHapticTestRunner(const cVector3d& initia
 																					oscAmount(0.0), clock()		
 {
 	clock.setTimeoutPeriodSeconds(TIMEOUT_PERIOD);
+	clock.start();
 }
 
 // -- ComputeVelocity
@@ -32,7 +33,9 @@ OscillatingHapticTestRunner::OscillatingHapticTestRunner(const cVector3d& initia
 //   on the specified axes.
 void OscillatingHapticTestRunner::ComputeVelocity(cVector3d& velocity, 
 												  const cVector3d& location)  {
+	
 	SetOscillation();
+
 	velocity = _initial;
 	switch (_type) {
 		case XY_PLANE:
@@ -62,12 +65,13 @@ void OscillatingHapticTestRunner::ComputeVelocity(cVector3d& velocity,
 void OscillatingHapticTestRunner::SetOscillation() {
 	if (clock.timeoutOccurred()) {
 		clock.reset();
-
-		if (polarity == true) 
+		if (polarity == true) {
 			oscAmount += INCREMENT_AMOUNT;
-		else
+			printf("switch+\n");
+		} else {
 			oscAmount -= INCREMENT_AMOUNT;
-	
+			printf("switch-\n");
+		}
 		SetPolarity();
 	}
 }
@@ -81,4 +85,7 @@ void OscillatingHapticTestRunner::SetPolarity()
 		polarity = false;
 	else if (oscAmount <= 1.0)
 		polarity = true;		
+}
+
+void OscillatingHapticTestRunner::RunnerLoop() {
 }

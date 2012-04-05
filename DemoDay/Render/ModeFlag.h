@@ -5,34 +5,39 @@
 enum Mode
 {
 	FREE, EXPLORE
-}
+};
+
+using namespace std;
 
 class ModeFlag
 {
 private:
+	vector<IInput*> listeners;
 	Mode CurrentMode;
-	vector<IInput*> watchers;
-	
-	void NotifyWatchers()
+
+	void NotifyListeners()
 	{
-		for(int i = 0; i < watchers.length(); i++)
+		for(unsigned int i = 0; i < listeners.size(); i++)
 		{
-			watchers[i]->ModeChange();
+			listeners[i]->ModeChange();
 		}
 	}
 
 public:
-	ModeFlag(){}
-	
-	void AddWatcher(IInput* watcher)
+	ModeFlag()
 	{
-		watchers.push_back(watcher);
+		CurrentMode = FREE;
+	}
+	
+	void AddListener(IInput* listener)
+	{
+		listeners.push_back(listener);
 	}
 
 	void SetMode(Mode m)
 	{
 		CurrentMode = m;
-		NotifyWatchers();
+		NotifyListeners();
 	}
 
 	Mode GetMode()

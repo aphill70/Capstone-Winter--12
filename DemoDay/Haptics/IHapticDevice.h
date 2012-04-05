@@ -25,7 +25,7 @@ public:
 	virtual void GetCursorVelocity(cVector3d& destination) = 0;
 
 	// Initializes the haptic device. The device is ready to use once this function returns.
-	//TODO: decide if SetTerrain and SetFluid must be called before this function is called.
+	//TODO: decide if the terrain and fluid model must be set before this function is called.
 	//   If not, move this code to the constructor
 	virtual void Init(void) = 0;
 
@@ -38,4 +38,9 @@ public:
 	virtual void SetMode(IHapticMode* newMode) {
 		mode = newMode;
 	}
+
+	// Some haptic device implementations use directions that aren't the same as the standard 3D
+	// axes. These functions allow specific implementations to convert 3D vectors to the standard axes.
+	virtual void ConvertToDeviceAxes(cVector3d& vector) { return; }
+	virtual void ConvertFromDeviceAxes(cVector3d& vector) { return; } 
 };

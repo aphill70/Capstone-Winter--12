@@ -42,7 +42,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;$(CHAI_ROOT)\external\hdFalcon\include\&quot;;&quot;$(CHAI_ROOT)\src&quot;;..\Haptics;..\Terrain;..\Fluids;..\Globals"
+				AdditionalIncludeDirectories="&quot;$(CHAI_ROOT)\external\hdFalcon\include\&quot;;&quot;$(CHAI_ROOT)\src&quot;;..\Haptics;..\Terrain;..\Fluids"
 				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE;_MSVC"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -196,6 +196,10 @@
 			</File>
 			<File
 				RelativePath=".\Main.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\OscillRunner.cpp"
 				>
 			</File>
 		</Filter>
