@@ -19,6 +19,13 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Haptic_Test", "Haptic_Test\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Haptics", "Haptics\Haptics.vcproj", "{7830F8C5-9DA6-4E4B-B2D3-E9B13CC50D0B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Render_Test", "Render_Test\Render_Test.vcproj", "{7D83004E-9D22-45C0-8A46-590D2DE3B439}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5FB99FEA-BA59-44B9-AF7F-32DAD9387129} = {5FB99FEA-BA59-44B9-AF7F-32DAD9387129}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GEOFluid_Test", "GEOFluid_Test\GEOFluid_Test.vcproj", "{EC5238FA-3EE0-418C-AB9A-4A3CE7AA50CC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -89,6 +96,26 @@ Global
 		{7830F8C5-9DA6-4E4B-B2D3-E9B13CC50D0B}.Release|Mixed Platforms.Build.0 = Release|Win32
 		{7830F8C5-9DA6-4E4B-B2D3-E9B13CC50D0B}.Release|Win32.ActiveCfg = Release|Win32
 		{7830F8C5-9DA6-4E4B-B2D3-E9B13CC50D0B}.Release|Win32.Build.0 = Release|Win32
+		{7D83004E-9D22-45C0-8A46-590D2DE3B439}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{7D83004E-9D22-45C0-8A46-590D2DE3B439}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{7D83004E-9D22-45C0-8A46-590D2DE3B439}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{7D83004E-9D22-45C0-8A46-590D2DE3B439}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7D83004E-9D22-45C0-8A46-590D2DE3B439}.Debug|Win32.Build.0 = Debug|Win32
+		{7D83004E-9D22-45C0-8A46-590D2DE3B439}.Release|Any CPU.ActiveCfg = Release|Win32
+		{7D83004E-9D22-45C0-8A46-590D2DE3B439}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{7D83004E-9D22-45C0-8A46-590D2DE3B439}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{7D83004E-9D22-45C0-8A46-590D2DE3B439}.Release|Win32.ActiveCfg = Release|Win32
+		{7D83004E-9D22-45C0-8A46-590D2DE3B439}.Release|Win32.Build.0 = Release|Win32
+		{EC5238FA-3EE0-418C-AB9A-4A3CE7AA50CC}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{EC5238FA-3EE0-418C-AB9A-4A3CE7AA50CC}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{EC5238FA-3EE0-418C-AB9A-4A3CE7AA50CC}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{EC5238FA-3EE0-418C-AB9A-4A3CE7AA50CC}.Debug|Win32.ActiveCfg = Debug|Win32
+		{EC5238FA-3EE0-418C-AB9A-4A3CE7AA50CC}.Debug|Win32.Build.0 = Debug|Win32
+		{EC5238FA-3EE0-418C-AB9A-4A3CE7AA50CC}.Release|Any CPU.ActiveCfg = Release|Win32
+		{EC5238FA-3EE0-418C-AB9A-4A3CE7AA50CC}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{EC5238FA-3EE0-418C-AB9A-4A3CE7AA50CC}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{EC5238FA-3EE0-418C-AB9A-4A3CE7AA50CC}.Release|Win32.ActiveCfg = Release|Win32
+		{EC5238FA-3EE0-418C-AB9A-4A3CE7AA50CC}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
