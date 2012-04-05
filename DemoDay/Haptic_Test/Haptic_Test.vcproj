@@ -198,6 +198,10 @@
 				RelativePath=".\Main.cpp"
 				>
 			</File>
+			<File
+				RelativePath=".\OscillRunner.cpp"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"

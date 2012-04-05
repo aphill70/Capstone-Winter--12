@@ -7,15 +7,25 @@
 //  for that mode.
 HapticsFluidTest::HapticsFluidTest(const e_TestMode mode, const cVector3d initial) {
 	switch(mode) {
+		case X_AXIS_OSCILLATING:
+			testRunner = new OscillatingHapticTestRunner(initial, OscillatingHapticTestRunner::X_AXIS);
+			break;
 		case CONSTANT_VELOCITY:
 		default:
 			testRunner = new ConstantHapticTestRunner(initial);
 	}
 }
+
+HapticsFluidTest::~HapticsFluidTest() {}
+
 // -- GetVelocityAt
 // @param velocity the velocity returned
 // @param location the current location of the cursor
 // This test should be different based on what mode was selected during initialization.
 void HapticsFluidTest::GetVelocityAt(cVector3d& velocity, const cVector3d& location) {
 	testRunner->ComputeVelocity(velocity, location);	
+}
+
+double HapticsFluidTest::GetMaxParticleSpeed(void) {
+	return TEST_FLUID_MAX_SPEED;
 }

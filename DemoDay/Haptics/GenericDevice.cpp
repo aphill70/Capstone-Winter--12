@@ -1,5 +1,7 @@
 #include "GenericDevice.h"
 
+extern cHapticDeviceHandler handler;
+
 void GenericDevice::Init(void) {
 	handler.getDevice(chaiDevice, 0);
 	chaiDevice->open();
@@ -52,3 +54,17 @@ void GenericDevice::CenterHapticDevice(void) {
 double GenericDevice::GetMaxForce(void) { return maxForce; }
 
 double GenericDevice::GetHapticRadius(void) { return hapticRadius; }
+
+cGenericHapticDevice* GenericDevice::GetChaiDevice(void) { return chaiDevice; }
+
+
+void GenericDevice::GetCursorPosition(cVector3d& destination) {
+	chaiDevice->getPosition(destination);
+	ConvertFromDeviceAxes(destination);
+}
+
+void GenericDevice::GetCursorVelocity(cVector3d& destination) {
+	chaiDevice->getPosition(destination);		// This must be called to get a non-zero linear velocity
+	chaiDevice->getLinearVelocity(destination);
+	ConvertFromDeviceAxes(destination);
+}
