@@ -63,6 +63,8 @@ void RenderManager::InitializeGlut()
 	glutMouseFunc(RenderManager::GLMouseFunc);
 	glutKeyboardFunc(RenderManager::GLKeyDown);
 	glutKeyboardUpFunc(RenderManager::GLKeyUp);
+	glutSpecialFunc(RenderManager::GLSpecialKeyDown);
+	glutSpecialUpFunc(RenderManager::GLSpecialKeyUp);
     glutReshapeFunc(RenderManager::GLResizeWindow);
     glutSetWindowTitle("Haptic Fluid Render");
 
