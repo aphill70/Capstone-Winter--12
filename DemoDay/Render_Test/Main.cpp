@@ -16,7 +16,7 @@ int main(void)
 	VirtualHapticDevice device;
 	//FalconDevice device;
 
-	GEOFileFluid fluid("../Fluids/fluidBake/demo_day_geometry", 200, 210);
+	GEOFileFluid fluid("../Fluids/fluidBake/demo_day_geometry", 200, 220);
 	fluidModel = &fluid;
 
 	device.Init();
