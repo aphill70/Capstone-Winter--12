@@ -1,12 +1,18 @@
 // Main.cpp : The entry point for the console application.
 
 #include <time.h>
+#include <windows.h>
+#include "chai3d.h"
+
+//TODO: !! Figure out how to load the Falcon code !!
+//#include "hdFalcon
 
 #include "Globals.h"
 #include "ControlManager.h"
 
 #include <gl/glut.h>
-#ifndef _WIN32
+
+#if !defined (_MSC_VER)
 using namespace std;
 #endif
 // Defines
@@ -20,15 +26,23 @@ GLvoid ReSizeGLScene(int width, int height);
 GLvoid KeyDown(unsigned char key, int x, int y);
 GLvoid KeyUp(unsigned char key, int x, int y);
 GLvoid MouseMotion(int x, int y);
+GLvoid MouseClick(int button, int state, int x, int y);
+void InitHapticDevice(void);
+void UpdateHaptics(void);
 
 // Globals
 clock_t lastTickTime;
 ControlManager controlManager;
 
+// Haptic globals
+cHapticDeviceHandler* handler;
+
 int main(int argc, char* argv[]){
+	
 	glutInit(&argc, argv);
 
 	InitGL();
+	InitHapticDevice();
 
 	/* Gets the loop rolling */
 	glutMainLoop();
@@ -36,12 +50,62 @@ int main(int argc, char* argv[]){
 	return 0;
 }
 
+// This function will not return until the device is centered
+void CenterHapticDevice(void) {
+	cVector3d initPos(0, 0, 0);
+	while (true) {
+		cVector3d currPos;
+		cVector3d linVeloc;
+		hapticDevice->getPosition(currPos);
+		hapticDevice->getLinearVelocity(linVeloc);
+
+		double remainingDist = currPos.length();
+		double currentSpeed = linVeloc.length();
+
+		if (remainingDist < 0.013 && currentSpeed < 0.0001) {
+			if (remainingDist < 0.006) {
+				return;
+			}
+
+			// Render a force to overcome static friction
+			currPos.negate();
+			currPos.mul(1000);	// Needs a huge multiplier because distance is so small
+		} else {
+			// Render a rather large force
+			currPos.negate();
+			currPos.mul(80);
+
+			// Add more speed if the cursor is stuck
+			if (currentSpeed < 0.001) {
+				currPos.mul(20);
+			}
+		}
+		hapticDevice->setForce(currPos);
+	}
+}
+
+void InitHapticDevice(void) {
+	handler = new cHapticDeviceHandler();
+	handler->getDevice(hapticDevice, 0);
+	hapticDevice->open();
+	hapticDevice->initialize(false);
+
+	cHapticDeviceInfo specs = hapticDevice->getSpecifications();
+	MAX_HAPTIC_FORCE = specs.m_maxForce;
+	HAPTIC_RADIUS = specs.m_workspaceRadius;
+
+	CenterHapticDevice();
+
+	cThread* hapticsThread = new cThread();
+    hapticsThread->set(UpdateHaptics, CHAI_THREAD_PRIORITY_HAPTICS);
+}
+
 GLvoid InitGL(){
 	// Setup for window
 	/* setting up double buffering rbg and depth */
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
 	glutInitWindowSize(windowWidth, windowHeight);
-	glutInitWindowPosition(100, 100);
+	glutInitWindowPosition(700, 100);
 	/* this name needs to match the name of the window in DrawGLScene */
 	glutCreateWindow(windowName);
 
@@ -72,12 +136,13 @@ GLvoid InitGL(){
 	glutKeyboardUpFunc(KeyUp);
 	glutPassiveMotionFunc(MouseMotion);
 	glutMotionFunc(MouseMotion);
-
+	glutMouseFunc(MouseClick);
 	// Setup for animation
 	lastTickTime = clock();
 
 	// Put mouse in starting position
 	glutWarpPointer(windowWidth / 2.0, windowHeight / 2.0);
+	glutSetCursor(GLUT_CURSOR_NONE);
 }
 
 
@@ -178,6 +243,7 @@ GLvoid DrawGLScene(void){
 
 /* checks for joystick input then draws */
 GLvoid IdleGLScene(){
+	UpdateHaptics();
 	// Cap at 30 fps
 	clock_t curTime = clock();
 	double millis = curTime - lastTickTime;
@@ -209,6 +275,25 @@ GLvoid ReSizeGLScene(int width, int height){
 	glLoadIdentity();
 }
 
-GLvoid KeyDown(unsigned char key, int x, int y) { controlManager.HandleKeyDown(key, x, y); }
-GLvoid KeyUp(unsigned char key, int x, int y) { controlManager.HandleKeyUp(key, x, y); }
-GLvoid MouseMotion(int x, int y) { controlManager.HandleMouseMotion(x, y); }
+GLvoid KeyDown(unsigned char key, int x, int y) { 
+	controlManager.HandleKeyDown(key, x, y); 
+}
+
+GLvoid KeyUp(unsigned char key, int x, int y) { 
+	controlManager.HandleKeyUp(key, x, y); 
+}
+
+GLvoid MouseMotion(int x, int y) { 
+	controlManager.HandleMouseMotion(x, y); 
+}
+
+GLvoid MouseClick(int button, int state, int x, int y) {
+	controlManager.HandleMouseClick(button, state, x, y); 
+}
+
+void UpdateHaptics(void) {
+	cVector3d updatedPosition;
+	hapticDevice->getPosition(updatedPosition);
+
+	controlManager.GetHapticInput().SetPosition(updatedPosition);
+}

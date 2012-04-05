@@ -4,7 +4,7 @@
 #include "Globals.h"
 #include "KeyboardInput.h"
 
-#ifndef _WIN32
+#if !defined (_MSC_VER)
 using namespace std;
 #endif
 
@@ -62,7 +62,7 @@ void KeyboardInput::HandleKeyPress(unsigned char key) {
 		resetPressed = true;
 		break;
 	case QUIT_BUTTON:						
-		exit(0);
+		ExitProgram(0);
 		break;
 	}
 }
@@ -138,7 +138,7 @@ void KeyboardInput::MoveRight(WorldTransformation& transform) {
 
 void KeyboardInput::MoveUp(WorldTransformation& transform) {
 	double angle = transform.rotateX - 90;
-	double yComponent = sin(angle * PI / 180.0) * MOVEMENT_DELTA;
+	double yComponent = /*sin(angle * PI / 180.0) */ MOVEMENT_DELTA;
 	double xzComponent = sqrt( MOVEMENT_DELTA * MOVEMENT_DELTA - yComponent * yComponent);
 	double xComponent = sin(transform.rotateY * PI / 180.0) * xzComponent;
 	double zComponent = cos(transform.rotateY * PI / 180.0) * xzComponent;
@@ -150,7 +150,7 @@ void KeyboardInput::MoveUp(WorldTransformation& transform) {
 
 void KeyboardInput::MoveDown(WorldTransformation& transform) {
 	double angle = transform.rotateX - 90;
-	double yComponent = sin(angle * PI / 180.0) * MOVEMENT_DELTA;
+	double yComponent = /*sin(angle * PI / 180.0) */ MOVEMENT_DELTA;
 	double xzComponent = sqrt( MOVEMENT_DELTA * MOVEMENT_DELTA - yComponent * yComponent);
 	double xComponent = sin(transform.rotateY * PI / 180.0) * xzComponent;
 	double zComponent = cos(transform.rotateY * PI / 180.0) * xzComponent;

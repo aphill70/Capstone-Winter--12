@@ -8,8 +8,8 @@
 #define BACK_BUTTON 's'
 #define LEFT_BUTTON 'a'
 #define RIGHT_BUTTON 'd'
-#define UP_BUTTON 'r'
-#define DOWN_BUTTON 'f'
+#define UP_BUTTON 'v'
+#define DOWN_BUTTON ' '
 #define RESET_BUTTON '1'
 #define QUIT_BUTTON 27		// ESC key
 

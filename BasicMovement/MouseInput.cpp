@@ -3,7 +3,7 @@
 
 #include <gl/glut.h>
 
-#ifndef _WIN32
+#if !defined (_MSC_VER)
 using namespace std;
 #endif
 
@@ -15,6 +15,10 @@ void MouseInput::HandleMouseInput(int x, int y) {
 	// I used += in case event is fired more than once per frame
 	xOffset = x - (windowWidth / 2.0);
 	yOffset = y - (windowHeight / 2.0);
+}
+
+void MouseInput::HandleMouseClick(int button, int state, int x, int y) {
+	
 }
 
 void MouseInput::ModifyTransformations(WorldTransformation& transform) {
@@ -36,7 +40,16 @@ void MouseInput::ModifyTransformations(WorldTransformation& transform) {
 		transform.rotateY += 360;
 	}
 
-	xOffset = windowWidth / 2.0;
-	yOffset = windowHeight / 2.0;
+	RecenterMouse();
+
+}
+
+void MouseInput::RecenterMouse() {
+	double xOffset = windowWidth / 2.0;
+	double yOffset = windowHeight / 2.0;
 	glutWarpPointer(xOffset, yOffset);
+}
+
+void MouseInput::ShowCursor(bool toggle) {
+	glutSetCursor((toggle ? GLUT_CURSOR_INHERIT : GLUT_CURSOR_NONE));
 }

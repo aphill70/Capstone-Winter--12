@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual C++ Express 2008
+# Visual Studio 2008
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "01 - devices", "..\..\examples\msvc9\01-devices\devices.vcproj", "{4623132F-C948-4366-83D5-3E5638700A5B}"
 	ProjectSection(ProjectDependencies) = postProject
 		{A9F01342-5463-4634-B1F9-BF98CD5591B0} = {A9F01342-5463-4634-B1F9-BF98CD5591B0}
