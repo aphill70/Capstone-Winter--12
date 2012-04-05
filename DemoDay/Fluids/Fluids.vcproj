@@ -186,7 +186,15 @@
 				>
 			</File>
 			<File
+				RelativePath=".\lib\kdtree.c"
+				>
+			</File>
+			<File
 				RelativePath=".\SPHFluid.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\TreeLoader.cpp"
 				>
 			</File>
 			<Filter
@@ -228,7 +236,15 @@
 				>
 			</File>
 			<File
+				RelativePath=".\lib\kdtree.h"
+				>
+			</File>
+			<File
 				RelativePath=".\SPHFluid.h"
+				>
+			</File>
+			<File
+				RelativePath=".\TreeLoader.h"
 				>
 			</File>
 			<Filter
