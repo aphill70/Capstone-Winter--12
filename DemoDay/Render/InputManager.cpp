@@ -18,16 +18,17 @@ void InputManager::InitTransforms(double heading, double elevation, cVector3d po
 }
 
 void InputManager::UpdateTransforms()
-{
-	mouseInput.ModifyTransformations(transforms);
-	keyboardInput.ModifyTransformations(transforms);
-	
+{	
 	if(mode.GetMode() != EXPLORE)
 	{
+		mouseInput.ModifyTransformations(transforms);
+		keyboardInput.ModifyTransformations(transforms);
 		BuildCamToWorld();
 	}
 	else
 	{
+		mouseInput.ModifyTransformations(transforms);
+		keyboardInput.ModifyTransformations(transforms);
 		hapticInput.UpdateCursor(camToWorld);
 	}
 

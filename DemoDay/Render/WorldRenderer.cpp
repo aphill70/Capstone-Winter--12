@@ -101,7 +101,8 @@ void WorldRenderer::RenderSky(int length)
 {
 	cColorb lowersky, uppersky;
 	
-	uppersky.set(100,241,233);
+	//uppersky.set(100,241,233);
+	uppersky.set(26,213,210);
 	lowersky.set(1,12,58);
 	//lowersky.set(192,218,241);
 	//uppersky.set(94,137,174);

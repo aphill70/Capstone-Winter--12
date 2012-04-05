@@ -5,6 +5,8 @@
 #include "IFluid.h"
 #include "GEOFileFluid.h"
 
+#include <iostream>
+
 cHapticDeviceHandler handler;
 IHapticDevice* hapticDevice;
 IFluid * fluidModel;
@@ -21,6 +23,9 @@ int main(void)
 
 	device.Init();
 	hapticDevice = &device;
+
+	cout << endl << "Simulation Ready. Press enter to begin." << endl;
+	cin.get();
 
 	RenderManager::getInstance().Initialize(fluidModel);
 	RenderManager::getInstance().RunSimulation();

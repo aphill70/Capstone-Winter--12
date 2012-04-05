@@ -31,6 +31,7 @@ void MouseInput::HandleMouseInput(int x, int y)
 
 void MouseInput::HandleMouseClick(int button, int state, int x, int y) 
 {
+	return;
 	if(button != GLUT_LEFT_BUTTON || state != GLUT_DOWN)
 		return;
 

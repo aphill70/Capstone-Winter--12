@@ -16,6 +16,10 @@
 #define INIT_ELEVATION	45.0
 #define INIT_POS		cVector3d(20, 20, 10)
 
+//#define INIT_HEADING	270.0
+//#define INIT_ELEVATION	90
+//#define INIT_POS		cVector3d(0,0,20)
+
 using namespace std;
 
 //A Singleton object

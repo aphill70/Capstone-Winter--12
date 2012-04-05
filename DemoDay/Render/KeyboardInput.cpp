@@ -146,13 +146,26 @@ void KeyboardInput::HandleKeyRelease(unsigned char key) {
 }
 
 void KeyboardInput::ModifyTransformations(WorldTransformation& transform) {
-	if (resetPressed && modeFlag->GetMode() == FREE) {
+	if (resetPressed)
+	{
 		resetPressed = false;
-		transform.elevation = 45;
-		transform.heading = 180;
-		transform.xPos = 20;
-		transform.yPos = 20;
-		transform.zPos = 10;
+		if(modeFlag->GetMode() == FREE) {
+			//transform.elevation = 45;
+			//transform.heading = 180;
+			//transform.xPos = 20;
+			//transform.yPos = 20;
+			//transform.zPos = 10;
+			
+			transform.elevation = 90;
+			transform.heading = 180;
+			transform.xPos = 10;
+			transform.yPos = 0;
+			transform.zPos = 15;
+
+			modeFlag->SetMode(EXPLORE);
+		} else {
+			modeFlag->SetMode(FREE);
+		}
 		return;
 	}
 
