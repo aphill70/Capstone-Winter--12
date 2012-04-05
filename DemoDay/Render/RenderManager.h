@@ -12,9 +12,9 @@
 #define	WINDOW_SIZE_W	600
 #define	WINDOW_SIZE_H	600
 
-#define INIT_HEADING	225.0
+#define INIT_HEADING	180.0
 #define INIT_ELEVATION	45.0
-#define INIT_POS		cVector3d(10, 10, 10)
+#define INIT_POS		cVector3d(20, 20, 10)
 
 using namespace std;
 
@@ -48,6 +48,8 @@ private:
 	static void GLMouseFunc(int button, int state, int x, int y);
 	static void GLKeyDown(unsigned char key, int x, int y);
 	static void GLKeyUp(unsigned char key, int x, int y);
+	static void GLSpecialKeyDown(int key, int x, int y);
+	static void GLSpecialKeyUp(int key, int x, int y);
 
 	void InitializeGlut(void);
 	void UpdateGraphics(void);

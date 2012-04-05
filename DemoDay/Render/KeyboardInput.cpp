@@ -17,6 +17,9 @@ void KeyboardInput::SetFlag(ModeFlag * flag)
 }
 
 void KeyboardInput::MoveRight(WorldTransformation& transform) {
+	if(modeFlag->GetMode() != FREE)	
+		return;
+
 	double xzComponent = MOVEMENT_DELTA;
 	double xComponent = sin(transform.heading * M_PI / 180.0) * xzComponent;
 	double zComponent = cos(transform.heading * M_PI / 180.0) * xzComponent;
@@ -26,6 +29,9 @@ void KeyboardInput::MoveRight(WorldTransformation& transform) {
 }
 
 void KeyboardInput::MoveLeft(WorldTransformation& transform) {
+	if(modeFlag->GetMode() != FREE)	
+		return;
+	
 	double xzComponent = MOVEMENT_DELTA;
 	double xComponent = sin(transform.heading * M_PI / 180.0) * xzComponent;
 	double zComponent = cos(transform.heading * M_PI / 180.0) * xzComponent;
@@ -35,6 +41,8 @@ void KeyboardInput::MoveLeft(WorldTransformation& transform) {
 }
 
 void KeyboardInput::MoveForward(WorldTransformation& transform) {
+	if(modeFlag->GetMode() != FREE)	
+		return;
 	double angle = transform.heading + 90;
 	double xComponent = sin(angle * M_PI / 180.0) * MOVEMENT_DELTA;
 	double zComponent = cos(angle * M_PI / 180.0) * MOVEMENT_DELTA;
@@ -44,6 +52,8 @@ void KeyboardInput::MoveForward(WorldTransformation& transform) {
 }
 
 void KeyboardInput::MoveBack(WorldTransformation& transform) {
+	if(modeFlag->GetMode() != FREE)	
+		return;
 	double angle = transform.heading - 90;
 	double xComponent = sin(angle * M_PI / 180.0) * MOVEMENT_DELTA;
 	double zComponent = cos(angle * M_PI / 180.0) * MOVEMENT_DELTA;
@@ -53,6 +63,8 @@ void KeyboardInput::MoveBack(WorldTransformation& transform) {
 }
 
 void KeyboardInput::MoveUp(WorldTransformation& transform) {
+	if(modeFlag->GetMode() != FREE)	
+		return;
 	double yComponent = /*sin(angle * M_PI / 180.0) */ MOVEMENT_DELTA;
 	double xzComponent = sqrt( MOVEMENT_DELTA * MOVEMENT_DELTA - yComponent * yComponent);
 	double xComponent = sin(transform.heading * M_PI / 180.0) * xzComponent;
@@ -64,6 +76,8 @@ void KeyboardInput::MoveUp(WorldTransformation& transform) {
 }
 
 void KeyboardInput::MoveDown(WorldTransformation& transform) {
+	if(modeFlag->GetMode() != FREE)	
+		return;
 	double yComponent = /*sin(angle * M_PI / 180.0) */ MOVEMENT_DELTA;
 	double xzComponent = sqrt( MOVEMENT_DELTA * MOVEMENT_DELTA - yComponent * yComponent);
 	double xComponent = sin(transform.heading * M_PI / 180.0) * xzComponent;
@@ -75,16 +89,6 @@ void KeyboardInput::MoveDown(WorldTransformation& transform) {
 }
 
 void KeyboardInput::HandleKeyPress(unsigned char key) {
-	if(modeFlag->GetMode() != FREE)	
-	{//for debugging only
-		if(key == 'p')
-		{
-			cVector3d vec = cVector3d(0, 0, 1);
-			cVector3d cur = RenderManager::getInstance().RotateVector(vec);
-			cout << cur.x << " " << cur.y << " " << cur.z << endl;
-		}
-		return;
-	}
 
 	switch (key) {
 	case FORWARD_BUTTON:
@@ -142,13 +146,13 @@ void KeyboardInput::HandleKeyRelease(unsigned char key) {
 }
 
 void KeyboardInput::ModifyTransformations(WorldTransformation& transform) {
-	if (resetPressed) {
+	if (resetPressed && modeFlag->GetMode() == FREE) {
 		resetPressed = false;
-		transform.elevation = 0;
-		transform.heading = 0;
-		transform.xPos = 0;
-		transform.yPos = 0;
-		transform.zPos = 0;
+		transform.elevation = 45;
+		transform.heading = 180;
+		transform.xPos = 20;
+		transform.yPos = 20;
+		transform.zPos = 10;
 		return;
 	}
 

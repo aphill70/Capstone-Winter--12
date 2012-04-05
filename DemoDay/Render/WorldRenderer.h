@@ -2,9 +2,7 @@
 
 #include "chai3d.h"
 #include "WorldTransformation.h"
-#include <iostream>
-
-using namespace std;
+#include "capSimpleTetra.h"
 
 #define XAXIS		0
 #define YAXIS		1

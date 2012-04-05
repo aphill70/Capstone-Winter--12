@@ -32,7 +32,7 @@ void WorldRenderer::InitWorld(cWorld * w, cMatrix3d cam)
 	light = new cLight(world);
 	InitLight();
 
-	RenderAxes(AXIS_LEN);
+	//RenderAxes(AXIS_LEN);
 	RenderSky(WORLD_BOUND);
 	RenderGround(WORLD_BOUND);
 }
@@ -49,16 +49,15 @@ void WorldRenderer::InitCamera(cMatrix3d cam)
 	//camera->setClippingPlanes(0.01, 10.0);
 
     // enable higher quality rendering for transparent objects
-    
-	//camera->enableMultipassTransparency(true);
+	camera->enableMultipassTransparency(true);
 }
 
 void WorldRenderer::InitLight()
 {
-    world->addChild(light);                   // attach light to camera
+    world->addChild(light);                   // attach light to world
     light->setEnabled(true);                   // enable light source
     light->setPos(cVector3d( WORLD_BOUND / 2, WORLD_BOUND, WORLD_BOUND / 2));  // position the light source
-    light->setDir(cVector3d(-1, -1, -1));  // define the direction of the light beam
+    light->setDir(cVector3d(0, 0 - WORLD_BOUND, 0));  // define the direction of the light beam
 }
 
 void WorldRenderer::SetCamera(cMatrix3d cam)
@@ -102,16 +101,16 @@ void WorldRenderer::RenderSky(int length)
 {
 	cColorb lowersky, uppersky;
 	
-	//lowersky.set(165,207,255);
-	lowersky.set(192,218,241);
-	//uppersky.set(132,187,254);
-	uppersky.set(94,137,174);
+	uppersky.set(100,241,233);
+	lowersky.set(1,12,58);
+	//lowersky.set(192,218,241);
+	//uppersky.set(94,137,174);
 
 	//define values for creating coordinates
 	double posX = length / 2.0;
 	double negX = length / -2.0;
-	double posY = length;
-	double negY = 0;
+	double posY = length / 2.0;
+	double negY = length / -2.0;
 	double posZ = length / 2.0;
 	double negZ = length / -2.0;
 
@@ -180,7 +179,7 @@ void WorldRenderer::RenderSky(int length)
 	for(int i = 0; i < 5; i++)
 	{
 		skybox[i]->setUseVertexColors(true);
-		for(int j = 0; j < skybox[i]->getNumVertices(); j++)
+		for(unsigned int j = 0; j < skybox[i]->getNumVertices(); j++)
 		{
 			curVertex = skybox[i]->getVertex(j);
 			if(curVertex->getPos().y == posY)
@@ -197,13 +196,13 @@ void WorldRenderer::RenderGround(int length)
 	world->addChild(ground);
 	//add Vertices to mesh
 	//0 = +X, +Z
-	ground->newVertex(length / 2.0, 0, length / 2.0);
+	ground->newVertex(length / 2.0, length / -2.0, length / 2.0);
 	//1 = +X, -Z
-	ground->newVertex(length / 2.0, 0, length / -2.0);
+	ground->newVertex(length / 2.0, length / -2.0, length / -2.0);
 	//2 = -X, +Z
-	ground->newVertex(length / -2.0, 0, length / 2.0);
+	ground->newVertex(length / -2.0, length / -2.0, length / 2.0);
 	//3 = -X, +Z
-	ground->newVertex(length / -2.0, 0, length / -2.0);
+	ground->newVertex(length / -2.0, length / -2.0, length / -2.0);
 
 	ground->newTriangle(0, 1, 2);
 	ground->newTriangle(1, 3, 2);
@@ -211,7 +210,8 @@ void WorldRenderer::RenderGround(int length)
 	ground->setUseVertexColors(true);
 	
 	cColorb grass;
-	grass.set(131,189,93);
+	grass.set(1,12,58);
+	//grass.set(131,189,93);
 
 	for(int i = 0; i < ground->getNumVertices(); i++)
 	{

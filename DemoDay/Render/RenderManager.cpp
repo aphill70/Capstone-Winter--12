@@ -63,6 +63,8 @@ void RenderManager::InitializeGlut()
 	glutMouseFunc(RenderManager::GLMouseFunc);
 	glutKeyboardFunc(RenderManager::GLKeyDown);
 	glutKeyboardUpFunc(RenderManager::GLKeyUp);
+	glutSpecialFunc(RenderManager::GLSpecialKeyDown);
+	glutSpecialUpFunc(RenderManager::GLSpecialKeyUp);
     glutReshapeFunc(RenderManager::GLResizeWindow);
     glutSetWindowTitle("Haptic Fluid Render");
 
@@ -89,7 +91,7 @@ void RenderManager::UpdateGraphics()
 	cMatrix3d cam = inputManager.GetCameraTransformations();
 	worldRenderer.SetCamera(cam);
 
-	fluidRenderer.UpdateFluid(world);
+	fluidRenderer.UpdateFluid();
 
 	//make sure to step other renderers and simulation
 	worldRenderer.RenderCamera(displayW, displayH);
