@@ -8,12 +8,14 @@
 #include "FrameData.h"
 #include "SPHFluid.h"
 #include "IFluidParticle.h"
+#include "lib/kdtree.h"
 
 #define NEIGHBORHOOD_SIZE 1.0
 
 class GEOFileFluid : public SPHFluid {
 protected:
 	FrameData** frames;
+	
 	int frameCount;
 	int currentFrame;
 	int maxSimParticles;

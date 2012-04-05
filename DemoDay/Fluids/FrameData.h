@@ -20,6 +20,7 @@ int comparePartSortData(const void* first, const void* second);
 
 class FrameData {
 	friend class GEOFileFluid;
+	friend class TreeLoader;
 private:
 	// The total number of particles in the simulation
 	int _totalPartCount;
